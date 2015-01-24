@@ -16,7 +16,7 @@ public class ControllerTesting : MonoBehaviour {
 
         sm = GameObject.Find("Main Camera").GetComponent<sequenceManager>();
 
-        sm.sequence(6);
+        sm.sequence();
 	
 	}
 	
