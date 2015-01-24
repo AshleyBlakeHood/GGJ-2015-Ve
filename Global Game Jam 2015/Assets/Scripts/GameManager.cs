@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> spawnPoints;
 	public int currentPlayers = 3, fixes = 0;
 
-    public GameObject Character;
+    public GameObject Character, EndGameParticles;
 
 	public int globalScore = 0;
 
@@ -91,9 +91,16 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void EndGame()
 	{
-		PlayerPrefs.SetInt ("Global Score", globalScore);
-		Application.LoadLevel ("Game Over Scene");
+        EndGameParticles.GetComponent<GameOverParticles>().EndGameExplosion();
+        StartCoroutine(GameEnd());
+        
 	}
+
+    void LoadEndMenu()
+    {
+        PlayerPrefs.SetInt("Global Score", globalScore);
+        Application.LoadLevel("Game Over Scene");
+    }
 
 	/// <summary>
 	/// Restarts the game with the same settings as before.
@@ -119,4 +126,10 @@ public class GameManager : MonoBehaviour
 	{
 		Application.LoadLevel ("Start Up Screen");
 	}
+
+    IEnumerator GameEnd()
+    {
+        yield return new WaitForSeconds(2.75f);
+        LoadEndMenu();
+    }
 }

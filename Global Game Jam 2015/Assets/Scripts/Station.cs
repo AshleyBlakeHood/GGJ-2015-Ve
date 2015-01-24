@@ -20,6 +20,8 @@ public class Station : MonoBehaviour
     bool inSequence = false;
     bool flashing = false;
 
+    public GameObject firstAlert, secondAlert;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -73,6 +75,12 @@ public class Station : MonoBehaviour
 			{
 				gameManager.EndGame ();
 			}
+
+            if (timeUntilCompletelyBroken <= 5)
+            {
+                if(!secondAlert.GetComponent<AudioSource>().isPlaying)
+                secondAlert.GetComponent<AudioSource>().Play();
+            }
 		}
 	}
 
@@ -83,7 +91,7 @@ public class Station : MonoBehaviour
 	{
 		broken = true;
         spriteRenderer.enabled = true;
-
+        firstAlert.GetComponent<AudioSource>().Play();
         StartCoroutine(FlashToggle());
 	}
 
