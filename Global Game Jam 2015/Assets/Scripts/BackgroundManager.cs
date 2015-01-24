@@ -85,7 +85,7 @@ public class BackgroundManager : MonoBehaviour
         //Spawn Particles?
         if (Random.Range(0, 5) == 0)
         {
-            GameObject p = Instantiate(particleResources[Random.Range(0, particleResources.Length - 1)], new Vector3(newScene.transform.position.x, newScene.transform.position.y, -0.5f), Quaternion.identity) as GameObject;
+            GameObject p = Instantiate(particleResources[Random.Range(0, particleResources.Length - 1)], new Vector3(newScene.transform.position.x, newScene.transform.position.y, -10f), Quaternion.identity) as GameObject;
             p.transform.parent = newScene.transform;
         }
 
