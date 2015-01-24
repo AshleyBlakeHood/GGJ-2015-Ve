@@ -58,28 +58,53 @@ public class Station : MonoBehaviour
 
 			if (timeUntilCompletelyBroken < 0)
 			{
-				Debug.Log ("Game Over! Explosion!");
+				gameManager.EndGame ();
 			}
 		}
 	}
 
+	/// <summary>
+	/// Will break the station and update the apperance to show this.
+	/// </summary>
 	public void BreakStation()
 	{
 		broken = true;
 		spriteRenderer.sprite = brokenSprite;
 	}
 
-	public void FixStation()
+	/// <summary>
+	/// Determines whether this instance is broken.
+	/// </summary>
+	/// <returns><c>true</c> if this instance is broken; otherwise, <c>false</c>.</returns>
+	public bool IsBroken()
+	{
+		return broken;
+	}
+
+	/// <summary>
+	/// Will set the station to normal status. If times attempted is greater than 1 then the score for fixing will be halfed.
+	/// </summary>
+	/// <param name="timesAttempted">Times attempted.</param>
+	public void FixStation(int timesAttempted)
 	{
 		broken = false;
 		spriteRenderer.sprite = normalSprite;
+
+		if (timesAttempted > 1)
+			gameManager.globalScore += (int)(timeUntilCompletelyBroken / 2);
+		else
+			gameManager.globalScore += (int)timeUntilCompletelyBroken;
+
 		timeUntilCompletelyBroken = 10f;
 	}
 
+	/// <summary>
+	/// Raises the mouse down event.
+	/// </summary>
 	void OnMouseDown()
 	{
 		if (broken)
-			FixStation ();
+			FixStation (1);
 		else
 			BreakStation (); 
 	}
