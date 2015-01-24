@@ -10,6 +10,7 @@ public class PrisonerController : MonoBehaviour
     int playerID;
     GamePadState gpState;
     PlayerIndex playerIndex;
+    public bool canMove = true;
 
 	// Use this for initialization
 	void Start ()
@@ -45,23 +46,27 @@ public class PrisonerController : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
 
-        gpState = GamePad.GetState(playerIndex);
+        if (canMove == true)
+        {
 
-        if (Input.GetKey(KeyCode.A) || gpState.ThumbSticks.Left.X <= -0.3f)
-        {
-            MoveLeft();
-        }
-        if (Input.GetKey(KeyCode.D) || gpState.ThumbSticks.Left.X >= 0.3f)
-        {
-            MoveRight();
-        }
-        if (Input.GetKey(KeyCode.W) || gpState.ThumbSticks.Left.Y >= 0.3f)
-        {
-            MoveForwards();
-        }
-        if (Input.GetKey(KeyCode.S) || gpState.ThumbSticks.Left.Y <= -0.3f)
-        {
-            MoveBackwards();
+            gpState = GamePad.GetState(playerIndex);
+
+            if (Input.GetKey(KeyCode.A) || gpState.ThumbSticks.Left.X <= -0.3f)
+            {
+                MoveLeft();
+            }
+            if (Input.GetKey(KeyCode.D) || gpState.ThumbSticks.Left.X >= 0.3f)
+            {
+                MoveRight();
+            }
+            if (Input.GetKey(KeyCode.W) || gpState.ThumbSticks.Left.Y >= 0.3f)
+            {
+                MoveForwards();
+            }
+            if (Input.GetKey(KeyCode.S) || gpState.ThumbSticks.Left.Y <= -0.3f)
+            {
+                MoveBackwards();
+            }
         }
 	
 	}

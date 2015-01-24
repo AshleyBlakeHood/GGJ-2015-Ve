@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class StationManager : MonoBehaviour
 {
 	public List<Station> stations = new List<Station>();
+    public GameObject flash;
 
 	int difficulty;
 

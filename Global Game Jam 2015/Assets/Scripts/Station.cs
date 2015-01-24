@@ -11,9 +11,6 @@ public class Station : MonoBehaviour
 	StationManager stationManager;
 	SpriteRenderer spriteRenderer;
 
-	public Sprite normalSprite;
-	public Sprite brokenSprite;
-
 	bool broken = false;
 
 	float timeUntilCompletelyBroken = 30f;
@@ -21,6 +18,7 @@ public class Station : MonoBehaviour
 	List<PrisonerController> playersInZone = new List<PrisonerController> ();
 
     bool inSequence = false;
+    bool flashing = false;
 
 	// Use this for initialization
 	void Start ()
@@ -59,6 +57,12 @@ public class Station : MonoBehaviour
             if (playersInZone.Count == gameManager.currentPlayers && inSequence == false)
             {
                 //Matt's Sequence Stuff to go here.
+
+                for (int i = 0; i < gameManager.players.Count; i++)
+                {
+                    gameManager.players[i].canMove = false;
+                }
+                
                 inSequence = true;
                 sm.sequnceStation(6, this);
             }
@@ -78,7 +82,9 @@ public class Station : MonoBehaviour
 	public void BreakStation()
 	{
 		broken = true;
-		spriteRenderer.sprite = brokenSprite;
+        spriteRenderer.enabled = true;
+
+        StartCoroutine(FlashToggle());
 	}
 
 	/// <summary>
@@ -96,8 +102,13 @@ public class Station : MonoBehaviour
 	/// <param name="timesAttempted">Times attempted.</param>
 	public void FixStation(int timesAttempted)
 	{
+        for (int i = 0; i < gameManager.players.Count; i++)
+        {
+            gameManager.players[i].canMove = true;
+        }
+
 		broken = false;
-		spriteRenderer.sprite = normalSprite;
+		spriteRenderer.enabled = false;
 
 		if (timesAttempted > 1)
 			gameManager.globalScore += (int)(timeUntilCompletelyBroken / 2);
@@ -106,6 +117,8 @@ public class Station : MonoBehaviour
 
 		timeUntilCompletelyBroken = 30f;
         inSequence = false;
+
+        flashing = false;
 	}
 
 	/// <summary>
@@ -118,4 +131,14 @@ public class Station : MonoBehaviour
 		else
 			BreakStation (); 
 	}
+
+    IEnumerator FlashToggle()
+    {
+        while (flashing)
+        {
+            yield return new WaitForSeconds(0.5f);
+
+            spriteRenderer.enabled = !spriteRenderer.enabled;
+        }
+    }
 }
