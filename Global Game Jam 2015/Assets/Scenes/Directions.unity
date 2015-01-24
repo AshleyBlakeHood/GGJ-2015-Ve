@@ -86,6 +86,8 @@ GameObject:
   - 92: {fileID: 12860650}
   - 124: {fileID: 12860649}
   - 81: {fileID: 12860648}
+  - 114: {fileID: 12860653}
+  - 114: {fileID: 12860654}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -158,6 +160,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &12860653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 12860647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0392f2503477f5d4e985bd8d95ad7a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upwards: {x: 0, y: 0, z: 0}
+  right: {x: 0, y: 0, z: 0}
+  left: {x: 0, y: 0, z: 0}
+  arrow: {fileID: 100000, guid: 162c06f370553b941a0b38f3b580b1d4, type: 2}
+--- !u!114 &12860654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 12860647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 235533764b27172478d00cf8154a7ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 0}
+  arrows: {fileID: 0}
 --- !u!1001 &1478919401
 Prefab:
   m_ObjectHideFlags: 0
@@ -195,7 +225,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 458784, guid: be2af4574f36208429fce6500822f43d, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 458784, guid: be2af4574f36208429fce6500822f43d, type: 2}
       propertyPath: m_LocalScale.x
