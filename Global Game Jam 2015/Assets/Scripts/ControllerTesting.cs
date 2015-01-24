@@ -26,7 +26,7 @@ public class ControllerTesting : MonoBehaviour {
         state3 = GamePad.GetState(PlayerIndex.Three);
         state4 = GamePad.GetState(PlayerIndex.Four);
 
-        if (Input.GetButton("j1HorizontalLeft"))
+        /*if (Input.GetButton("j1HorizontalLeft"))
             Debug.Log("Joystick 1 Horizontal Left Pressed");
 
         if (Input.GetButton("j1VerticalLeft"))
@@ -145,7 +145,7 @@ public class ControllerTesting : MonoBehaviour {
         if (state2.Buttons.X.ToString() == "Pressed")
         {
             vibrate(2);
-        }
+        }*/
 
 
 	}

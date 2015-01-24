@@ -1,31 +1,59 @@
 ﻿using UnityEngine;
 using System.Collections;
+using XInputDotNetPure;
 
 public class PrisonerController : MonoBehaviour {
 
     public float speed = 10;
-    public 
+    int playerID;
+    GamePadState gpState;
+    PlayerIndex playerIndex;
 
 	// Use this for initialization
 	void Start () {
-	
 	}
+
+    public void SetUpGamePad(int playerNumber)
+    {
+        switch (playerNumber)
+        {
+            case 1:
+                playerIndex = PlayerIndex.One;
+                Debug.Log("YUP");
+                break;
+            case 2:
+                playerIndex = PlayerIndex.Two;
+                break;
+            case 3:
+                playerIndex = PlayerIndex.Three;
+                break;
+            case 4:
+                playerIndex = PlayerIndex.Four;
+                break;
+            default:
+                break;
+        }
+        playerID = playerNumber;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.A))
+
+        gpState = GamePad.GetState(playerIndex);
+
+        if (Input.GetKey(KeyCode.A) || gpState.ThumbSticks.Left.X <= -0.3f)
         {
             MoveLeft();
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || gpState.ThumbSticks.Left.X >= 0.3f)
         {
             MoveRight();
         }
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || gpState.ThumbSticks.Left.Y >= 0.3f)
         {
             MoveForwards();
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) || gpState.ThumbSticks.Left.Y <= -0.3f)
         {
             MoveBackwards();
         }
@@ -34,9 +62,7 @@ public class PrisonerController : MonoBehaviour {
 
     void MoveLeft()
     {
-
         transform.position = transform.position - new Vector3(speed/100f,0,0);
-        //transform.position.y -= speed;
     }
 
     void MoveRight()

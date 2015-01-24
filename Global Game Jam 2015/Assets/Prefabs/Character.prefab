@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 477828}
   - 212: {fileID: 21277828}
+  - 114: {fileID: 11412156}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -141,7 +142,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 177832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.5, z: 0}
+  m_LocalPosition: {x: -10.8000002, y: .239999995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 477824}
@@ -185,9 +186,21 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 4640c02f139ce3f408af3b14d1c4ea07, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11412156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b15d1b35be71f4fa60a89ddca8db08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heads: []
 --- !u!114 &11477824
 MonoBehaviour:
   m_ObjectHideFlags: 1
