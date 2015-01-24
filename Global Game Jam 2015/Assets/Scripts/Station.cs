@@ -58,7 +58,7 @@ public class Station : MonoBehaviour
 
 			if (timeUntilCompletelyBroken < 0)
 			{
-				Debug.Log ("Game Over! Explosion!");
+				gameManager.EndGame ();
 			}
 		}
 	}
