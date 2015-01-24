@@ -23,7 +23,7 @@ public class Direction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (voteOpen = true) {
+		if (voteOpen == true) {
 			if (Input.GetKeyDown (KeyCode.W)) {
 				up++;
 				count++;

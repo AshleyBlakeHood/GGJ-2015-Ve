@@ -46,7 +46,7 @@ public class sequenceManager : MonoBehaviour {
 
         if (PlayerPrefs.GetInt("Player Count") == completed) // If amount of players that have completed equals the amount of players triggers stations being fixed
         {
-            station.FixStation(); // Fixes station
+            station.FixStation(1); // Fixes station
 
             // Resetting all the bools and int used to calculate total completed
             playerOne = false;

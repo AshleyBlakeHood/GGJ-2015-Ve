@@ -23,7 +23,6 @@ public class ControllerTesting : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-<<<<<<< HEAD
         state1 = GamePad.GetState(PlayerIndex.One);
         state2 = GamePad.GetState(PlayerIndex.Two);
         state3 = GamePad.GetState(PlayerIndex.Three);
@@ -202,7 +201,7 @@ public class ControllerTesting : MonoBehaviour {
         if (state4.Buttons.A == ButtonState.Pressed)
         {
             StartCoroutine(vibrate4());
-        }
+        }*/
 
 
 	}
@@ -218,7 +217,7 @@ public class ControllerTesting : MonoBehaviour {
 
     }
 
-    IEnumerator vibrate1() // Runs methods every 10 seconds
+    /*IEnumerator vibrate1() // Runs methods every 10 seconds
     {
         float j1 = 0.9f;
 
@@ -228,15 +227,12 @@ public class ControllerTesting : MonoBehaviour {
 
         j1 = 0.0f;
 
-<<<<<<< HEAD
         if (state2.Buttons.X.ToString() == "Pressed")
         {
             vibrate(2);
-        }*/
-=======
+        }
         GamePad.SetVibration(PlayerIndex.One, j1, j1);
-    }
->>>>>>> a9a230adecefa5980ad53e81938c2f104bbc4f27
+    }*/
 
     IEnumerator vibrate2() // Runs methods every 10 seconds
     {

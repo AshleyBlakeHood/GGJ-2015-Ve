@@ -14,15 +14,10 @@ public class GameManager : MonoBehaviour
 	//public List<Player> players = new List<Player>();
 
 	// Use this for initialization
-<<<<<<< HEAD
-	void Start () {
-        //currentPlayers = PlayerPrefs.GetInt("Player Count");
-        SpawnPlayers();
-=======
 	void Start ()
 	{
 		currentPlayers = PlayerPrefs.GetInt ("Player Count");
->>>>>>> a9a230adecefa5980ad53e81938c2f104bbc4f27
+        SpawnPlayers();
 	}
 	
 	// Update is called once per frame
@@ -30,7 +25,6 @@ public class GameManager : MonoBehaviour
 	
 	}
 
-<<<<<<< HEAD
     void SpawnPlayers()
     {
         if (PlayerPrefs.GetInt("P1") == 1)
@@ -66,9 +60,8 @@ public class GameManager : MonoBehaviour
             //p4.GetComponentInChildren<HeadChanger>().SetHead(4);
         }
     }
-}
-=======
-	/// <summary>
+
+    /// <summary>
 	/// Ends the main game and enters the game over screen.
 	/// </summary>
 	public void EndGame()
@@ -102,4 +95,3 @@ public class GameManager : MonoBehaviour
 		Application.LoadLevel ("Start Up Screen");
 	}
 }
->>>>>>> a9a230adecefa5980ad53e81938c2f104bbc4f27
