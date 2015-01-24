@@ -6,6 +6,8 @@ public class Station : MonoBehaviour
 {
 	GameManager gameManager;
 
+    sequenceManager sm;
+
 	StationManager stationManager;
 	SpriteRenderer spriteRenderer;
 
@@ -14,9 +16,11 @@ public class Station : MonoBehaviour
 
 	bool broken = false;
 
-	float timeUntilCompletelyBroken = 10f;
+	float timeUntilCompletelyBroken = 30f;
 
-	//List<Player> playersInZone = new List<PlayerPrefs> ();
+	List<PrisonerController> playersInZone = new List<PrisonerController> ();
+
+    bool inSequence = false;
 
 	// Use this for initialization
 	void Start ()
@@ -24,6 +28,8 @@ public class Station : MonoBehaviour
 		//Get Managers
 		gameManager = GameObject.FindObjectOfType<GameManager> ();
 		stationManager = GameObject.FindObjectOfType<StationManager> ();
+
+        sm = GameObject.FindObjectOfType<sequenceManager>();
 
 		//Get Compenents
 		spriteRenderer = GetComponent<SpriteRenderer> ();
@@ -38,21 +44,24 @@ public class Station : MonoBehaviour
 		if (broken)
 		{
 			//Scan all players to check their distance to the station.
-//			for (int i = 0; i < gameManager.players.Count; i++)
-//			{
-//				if (Vector2.Distance(gameManager.players[i].transform.position, transform.position) < 1f)
-//				{
-//					if (!players[i].Contains(gameManager.players[i]))
-//						playersInZone.Add(gameManager.players[i]);
-//				}
-//				else
-//					playersInZone.Remove(gameManager.players[i]);
-//			}
+            for (int i = 0; i < gameManager.players.Count; i++)
+            {
+                if (Vector2.Distance(gameManager.players[i].transform.position, transform.position) < 1f)
+                {
+                    //Debug.Log("Lana!");
+                    if (!playersInZone.Contains(gameManager.players[i]))
+                        playersInZone.Add(gameManager.players[i]);
+                }
+                else
+                    playersInZone.Remove(gameManager.players[i]);
+            }
 
-//			if (playersInZone.Count == gameManager.currentPlayers)
-//			{
-//				//Matt's Sequence Stuff to go here.
-//			}
+            if (playersInZone.Count == gameManager.currentPlayers && inSequence == false)
+            {
+                //Matt's Sequence Stuff to go here.
+                inSequence = true;
+                sm.sequnceStation(6, this);
+            }
 
 			timeUntilCompletelyBroken -= Time.deltaTime;
 
@@ -95,7 +104,8 @@ public class Station : MonoBehaviour
 		else
 			gameManager.globalScore += (int)timeUntilCompletelyBroken;
 
-		timeUntilCompletelyBroken = 10f;
+		timeUntilCompletelyBroken = 30f;
+        inSequence = false;
 	}
 
 	/// <summary>

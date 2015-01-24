@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &183492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 483492}
+  - 114: {fileID: 11483492}
+  m_Layer: 0
+  m_Name: Background Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &483492
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.500793695, y: .715427577, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11483492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f428b9bfef3fc7142977392074112736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {x: -.100000001, y: 0}
+  terminationZone: {x: -20, y: 0}
+  spaceSceneResources:
+  - {fileID: 185112, guid: 19f65cfaaa6f020429d50949b77b2c28, type: 2}
+  planetResources:
+  - {fileID: 125140, guid: 666205eeab6b2274cb9518afa3647e93, type: 2}
+  - {fileID: 160954, guid: a74fb9eb251925645a32f750bbad6930, type: 2}
+  - {fileID: 186102, guid: 4992ef7bcd4942544a36a3d27d76b8a0, type: 2}
+  - {fileID: 165436, guid: ca6e2c3fcd4ba9c4abc6a6ac7dc9950e, type: 2}
+  - {fileID: 164136, guid: 58c23e36ef09878499ab093d9bf53abe, type: 2}
+  - {fileID: 161178, guid: 26f5df1bbac499441ae2ba48cf72857e, type: 2}
+  - {fileID: 144510, guid: eb8936e89ed3c224db5c7889ad9b2343, type: 2}
+  - {fileID: 158396, guid: df1853478856c5d42961169509441c17, type: 2}
+  - {fileID: 147228, guid: 225549ea4f89e3d4b96de438d87900cc, type: 2}
+  - {fileID: 114370, guid: 747d67c8be6a3c343a5b82e9e8092edf, type: 2}
+  - {fileID: 176622, guid: 0561b2646a661a64b8eab63885b7622a, type: 2}
+  - {fileID: 115012, guid: 8ec3d6ced40d82443b966cc84c7b67ca, type: 2}
+  - {fileID: 185766, guid: 8a2ee66ff08df7d4699964f4a522533c, type: 2}
+  particleResources:
+  - {fileID: 129346, guid: 059bc214ac5f4fb469e9cd7506d3f9b6, type: 2}
+  - {fileID: 181002, guid: d9b4dbd4fd772d54b8aa768f0909a7fc, type: 2}
+  - {fileID: 165212, guid: eb443fab72507d7499aec804f91f08e9, type: 2}
+  flybyItemsResources:
+  - {fileID: 142124, guid: 7b48d3eebb0f7a240b67a9b832634b21, type: 2}
+  - {fileID: 136500, guid: 4134e17e4a8f86248931e307251d9494, type: 2}
+  spaceScenes: []
+  planets: []
+  flybyItems: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 183492}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

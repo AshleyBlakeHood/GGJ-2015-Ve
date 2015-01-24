@@ -68,6 +68,8 @@ public class sequenceManager : MonoBehaviour {
 
     public void sequnceStation(int length, Station stationH) // Station sequence so that station and length can be passed without needing each character to have a copy of these when they call for a new sequence
     {
+        Debug.Log("Found You");
+
         station = stationH; // Adds passed station to locally held station
 
         lengths = length; // Adds passed length to the locally held int

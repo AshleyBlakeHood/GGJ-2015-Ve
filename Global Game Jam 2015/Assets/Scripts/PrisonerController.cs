@@ -2,7 +2,9 @@
 using System.Collections;
 using XInputDotNetPure;
 
-public class PrisonerController : MonoBehaviour {
+public class PrisonerController : MonoBehaviour
+{
+    GameManager gameManager;
 
     public float speed = 10;
     int playerID;
@@ -10,7 +12,11 @@ public class PrisonerController : MonoBehaviour {
     PlayerIndex playerIndex;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+        gameManager = GameObject.FindObjectOfType<GameManager>();
+
+        gameManager.players.Add(this);
 	}
 
     public void SetUpGamePad(int playerNumber)

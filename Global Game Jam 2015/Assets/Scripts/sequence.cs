@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using XInputDotNetPure;
+using System;
 
 public class sequence : MonoBehaviour {
 
@@ -36,161 +37,168 @@ public class sequence : MonoBehaviour {
         if (controller == 4)
             state = GamePad.GetState(PlayerIndex.Four);
 
-        if (state.Buttons.A == ButtonState.Pressed) // Checking for A depressed
+        if (sequenceI.Length != 0)
         {
-            if (downA == false) // Makes sure only ran once while the button is depressed
+
+            if (state.Buttons.A == ButtonState.Pressed) // Checking for A depressed
             {
-                if (sequenceI[playerLoc] == 0) // If button pressed equals the current button in the sequence
-                { // Correct Button
-                    playerLoc++; // Moves the sequence along.
+                if (downA == false) // Makes sure only ran once while the button is depressed
+                {
+                    if (sequenceI[playerLoc] == 0) // If button pressed equals the current button in the sequence
+                    { // Correct Button
+                        playerLoc++; // Moves the sequence along.
 
-                    //Debug.Log("Correct Button");
+                        Debug.Log("A0");
+                    }
+                    else
+                    { // Incorrect Button
+                        playerLoc = 0; // Resetting the players location in the sequence
+                        //Debug.Log("Wrong Button");
+                        Debug.Log("Player " + controller + " got the button wrong restarting sequences");
+
+                        sm.sequence(); // Calls for a new sequence
+                    }
+
+                    downA = true; // Sets the bool so that this code is only called once per depression
                 }
-                else
-                { // Incorrect Button
-                    playerLoc = 0; // Resetting the players location in the sequence
-                    //Debug.Log("Wrong Button");
-                    Debug.Log("Player " + controller + " got the button wrong restarting sequences");
-
-                    sm.sequence(); // Calls for a new sequence
-                }
-
-                downA = true; // Sets the bool so that this code is only called once per depression
             }
-        }
-        else if (state.Buttons.B == ButtonState.Pressed) // Checking for B depressed
-        {
-            if (downB == false) // Makes sure only ran once while the button is depressed
+            else if (state.Buttons.B == ButtonState.Pressed) // Checking for B depressed
             {
-                if (sequenceI[playerLoc] == 1) // If button pressed equals the current button in the sequence
-                { // Correct Button
-                    playerLoc++; // Moves the sequence along.
+                if (downB == false) // Makes sure only ran once while the button is depressed
+                {
+                    if (sequenceI[playerLoc] == 1) // If button pressed equals the current button in the sequence
+                    { // Correct Button
+                        playerLoc++; // Moves the sequence along.
 
-                    //Debug.Log("Correct Button");
+                        Debug.Log("B1");
+                    }
+                    else
+                    { // Incorrect Button
+                        playerLoc = 0; // Resetting the players location in the sequence
+                        //Debug.Log("Wrong Button");
+                        Debug.Log("Player " + controller + " got the button wrong restarting sequences");
+
+                        sm.sequence(); // Calls for a new sequence
+                    }
+
+                    downB = true; // Sets the bool so that this code is only called once per depression
                 }
-                else
-                { // Incorrect Button
-                    playerLoc = 0; // Resetting the players location in the sequence
-                    //Debug.Log("Wrong Button");
-                    Debug.Log("Player " + controller + " got the button wrong restarting sequences");
-
-                    sm.sequence(); // Calls for a new sequence
-                }
-
-                downB = true; // Sets the bool so that this code is only called once per depression
             }
-        }
-        else if (state.Buttons.X == ButtonState.Pressed) // Checking for X depressed
-        {
-            if (downX == false) // Makes sure only ran once while the button is depressed
+            else if (state.Buttons.X == ButtonState.Pressed) // Checking for X depressed
             {
-                if (sequenceI[playerLoc] == 2) // If button pressed equals the current button in the sequence
-                { // Correct Button
-                    playerLoc++; // Moves the sequence along.
+                if (downX == false) // Makes sure only ran once while the button is depressed
+                {
+                    if (sequenceI[playerLoc] == 2) // If button pressed equals the current button in the sequence
+                    { // Correct Button
+                        playerLoc++; // Moves the sequence along.
 
-                    //Debug.Log("Correct Button");
+                        Debug.Log("X2");
+                    }
+                    else
+                    { // Incorrect Button
+                        playerLoc = 0; // Resetting the players location in the sequence
+                        //Debug.Log("Wrong Button");
+                        Debug.Log("Player " + controller + " got the button wrong restarting sequences");
+
+                        sm.sequence(); // Calls for a new sequence
+                    }
+
+                    downX = true; // Sets the bool so that this code is only called once per depression
                 }
-                else
-                { // Incorrect Button
-                    playerLoc = 0; // Resetting the players location in the sequence
-                    //Debug.Log("Wrong Button");
-                    Debug.Log("Player " + controller + " got the button wrong restarting sequences");
-
-                    sm.sequence(); // Calls for a new sequence
-                }
-
-                downX = true; // Sets the bool so that this code is only called once per depression
-            }    
-        }
-        else if (state.Buttons.Y == ButtonState.Pressed) // Checking for Y depressed
-        {
-            if (downY == false) // Makes sure only ran once while the button is depressed
-            {
-                if (sequenceI[playerLoc] == 3) // If button pressed equals the current button in the sequence
-                { // Correct Button
-                    playerLoc++; // Moves the sequence along.
-
-                    //Debug.Log("Correct Button");
-                }
-                else
-                { // Incorrect Button
-                    playerLoc = 0; // Resetting the players location in the sequence
-                    //Debug.Log("Wrong Button");
-                    Debug.Log("Player " + controller + " got the button wrong restarting sequences");
-
-                    sm.sequence(); // Calls for a new sequence
-                }
-
-                downY = true; // Sets the bool so that this code is only called once per depression
             }
-        }
-        else if (state.Buttons.LeftShoulder == ButtonState.Pressed) // Checking for Left Shoulder depressed
-        {
-            if (downLS == false) // Makes sure only ran once while the button is depressed
+            else if (state.Buttons.Y == ButtonState.Pressed) // Checking for Y depressed
             {
-                if (sequenceI[playerLoc] == 4) // If button pressed equals the current button in the sequence
-                { // Correct Button
-                    playerLoc++; // Moves the sequence along.
+                if (downY == false) // Makes sure only ran once while the button is depressed
+                {
+                    if (sequenceI[playerLoc] == 3) // If button pressed equals the current button in the sequence
+                    { // Correct Button
+                        playerLoc++; // Moves the sequence along.
 
-                    //Debug.Log("Correct Button");
+                        Debug.Log("Y3");
+                    }
+                    else
+                    { // Incorrect Button
+                        playerLoc = 0; // Resetting the players location in the sequence
+                        //Debug.Log("Wrong Button");
+                        Debug.Log("Player " + controller + " got the button wrong restarting sequences");
+
+                        sm.sequence(); // Calls for a new sequence
+                    }
+
+                    downY = true; // Sets the bool so that this code is only called once per depression
                 }
-                else
-                { // Incorrect Button
-                    playerLoc = 0; // Resetting the players location in the sequence
-                    //Debug.Log("Wrong Button");
-                    Debug.Log("Player " + controller + " got the button wrong restarting sequences");
-
-                    sm.sequence(); // Calls for a new sequence
-                }
-
-                downLS = true; // Sets the bool so that this code is only called once per depression
             }
-        }
-        if (state.Buttons.RightShoulder == ButtonState.Pressed) // Checking for Right Shoulder depressed
-        {
-            if (downRS == false) // Makes sure only ran once while the button is depressed
+            else if (state.Buttons.LeftShoulder == ButtonState.Pressed) // Checking for Left Shoulder depressed
             {
-                if (sequenceI[playerLoc] == 5) // If button pressed equals the current button in the sequence
-                { // Correct Button
-                    playerLoc++; // Moves the sequence along.
+                if (downLS == false) // Makes sure only ran once while the button is depressed
+                {
+                    if (sequenceI[playerLoc] == 4) // If button pressed equals the current button in the sequence
+                    { // Correct Button
+                        playerLoc++; // Moves the sequence along.
 
-                    //Debug.Log("Correct Button");
+                        Debug.Log("LB4");
+                    }
+                    else
+                    { // Incorrect Button
+                        playerLoc = 0; // Resetting the players location in the sequence
+                        //Debug.Log("Wrong Button");
+                        Debug.Log("Player " + controller + " got the button wrong restarting sequences");
+
+                        sm.sequence(); // Calls for a new sequence
+                    }
+
+                    downLS = true; // Sets the bool so that this code is only called once per depression
                 }
-                else
-                { // Incorrect Button
-                    playerLoc = 0; // Resetting the players location in the sequence
-                    //Debug.Log("Wrong Button");
-                    Debug.Log("Player " + controller + " got the button wrong restarting sequences");
-
-                    sm.sequence(); // Calls for a new sequence
-                }
-
-                downRS = true; // Sets the bool so that this code is only called once per depression
             }
-        }
+            if (state.Buttons.RightShoulder == ButtonState.Pressed) // Checking for Right Shoulder depressed
+            {
+                if (downRS == false) // Makes sure only ran once while the button is depressed
+                {
+                    if (sequenceI[playerLoc] == 5) // If button pressed equals the current button in the sequence
+                    { // Correct Button
+                        playerLoc++; // Moves the sequence along.
 
-        if (state.Buttons.A == ButtonState.Released && downA == true) // Checks if button is released and that the button has been depressed but the bool not reset
-            downA = false; // Resets the bool so that the button can be used next depression
-        if (state.Buttons.B == ButtonState.Released && downB == true) // Checks if button is released and that the button has been depressed but the bool not reset
-            downB = false; // Resets the bool so that the button can be used next depression
-        if (state.Buttons.X == ButtonState.Released && downX == true) // Checks if button is released and that the button has been depressed but the bool not reset
-            downX = false; // Resets the bool so that the button can be used next depression
-        if (state.Buttons.Y == ButtonState.Released && downY == true) // Checks if button is released and that the button has been depressed but the bool not reset
-            downY = false; // Resets the bool so that the button can be used next depression
-        if (state.Buttons.LeftShoulder == ButtonState.Released && downLS == true) // Checks if button is released and that the button has been depressed but the bool not reset
-            downLS = false; // Resets the bool so that the button can be used next depression
-        if (state.Buttons.RightShoulder == ButtonState.Released && downRS == true) // Checks if button is released and that the button has been depressed but the bool not reset
-            downRS = false; // Resets the bool so that the button can be used next depression
+                        Debug.Log("RB5");
+                    }
+                    else
+                    { // Incorrect Button
+                        playerLoc = 0; // Resetting the players location in the sequence
+                        //Debug.Log("Wrong Button");
+                        Debug.Log("Player " + controller + " got the button wrong restarting sequences");
 
-        if (playerLoc >= length && runOnce == false) // Checking if the player has successfully completed the sequence
-        {
-            runOnce = true;
-            complete();
+                        sm.sequence(); // Calls for a new sequence
+                    }
+
+                    downRS = true; // Sets the bool so that this code is only called once per depression
+                }
+            }
+
+            if (state.Buttons.A == ButtonState.Released && downA == true) // Checks if button is released and that the button has been depressed but the bool not reset
+                downA = false; // Resets the bool so that the button can be used next depression
+            if (state.Buttons.B == ButtonState.Released && downB == true) // Checks if button is released and that the button has been depressed but the bool not reset
+                downB = false; // Resets the bool so that the button can be used next depression
+            if (state.Buttons.X == ButtonState.Released && downX == true) // Checks if button is released and that the button has been depressed but the bool not reset
+                downX = false; // Resets the bool so that the button can be used next depression
+            if (state.Buttons.Y == ButtonState.Released && downY == true) // Checks if button is released and that the button has been depressed but the bool not reset
+                downY = false; // Resets the bool so that the button can be used next depression
+            if (state.Buttons.LeftShoulder == ButtonState.Released && downLS == true) // Checks if button is released and that the button has been depressed but the bool not reset
+                downLS = false; // Resets the bool so that the button can be used next depression
+            if (state.Buttons.RightShoulder == ButtonState.Released && downRS == true) // Checks if button is released and that the button has been depressed but the bool not reset
+                downRS = false; // Resets the bool so that the button can be used next depression
+
+            if (playerLoc >= length && runOnce == false) // Checking if the player has successfully completed the sequence
+            {
+                runOnce = true;
+                complete();
+            }
         }
 	}
 
     void complete()
     {
+        playerLoc = 0;
+        runOnce = false;
+
         switch (controller) // Decides which player this player is and then flips the successful bool in the Sequence Manager
         {
             case 1:
@@ -210,5 +218,10 @@ public class sequence : MonoBehaviour {
                 Debug.Log("Player Four Completed");
                 break;
         }
+    }
+
+    void OnGUI()
+    {
+        GUI.Label(new Rect(50, 10, 250, 30), string.Join("+", Array.ConvertAll<int, String>(sequenceI, Convert.ToString)));
     }
 }

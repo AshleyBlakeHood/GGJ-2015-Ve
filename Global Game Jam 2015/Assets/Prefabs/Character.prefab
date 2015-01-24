@@ -77,6 +77,7 @@ GameObject:
   - 114: {fileID: 11477824}
   - 61: {fileID: 6177824}
   - 50: {fileID: 5077824}
+  - 114: {fileID: 11495288}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -142,8 +143,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 177832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.8000002, y: .239999995, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.01999998, y: .610000014, z: 0}
+  m_LocalScale: {x: .0848201886, y: .0848201811, z: .0848201811}
   m_Children:
   - {fileID: 477824}
   m_Father: {fileID: 0}
@@ -212,7 +213,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84cf74adce88a4147973d039291411d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 2
+--- !u!114 &11495288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa3dd69d9cb4bf438054b1b2ed27e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceI: 
+  controller: 1
+  length: 0
 --- !u!212 &21277824
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -232,7 +247,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 12df32c964919664a8f5fd05a8f747a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21277826
@@ -254,7 +269,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 6312aed112c30f54a8a0210322607a34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21277828
@@ -276,7 +291,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 559b91b3e96480740aa0c985791b3fe1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21277830
@@ -298,7 +313,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 6312aed112c30f54a8a0210322607a34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000

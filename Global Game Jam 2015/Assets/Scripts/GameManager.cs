@@ -11,12 +11,13 @@ public class GameManager : MonoBehaviour
 
 	public int globalScore = 0;
 
-	//public List<Player> players = new List<Player>();
+	public List<PrisonerController> players = new List<PrisonerController>();
 
 	// Use this for initialization
 	void Start ()
 	{
 		currentPlayers = PlayerPrefs.GetInt ("Player Count");
+        currentPlayers = 1;
         SpawnPlayers();
 	}
 	
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
             p1.name = "Player 1";
             p1.transform.position = spawnPoints[0].transform.position;
             p1.GetComponent<PrisonerController>().SetUpGamePad(1);
+            p1.GetComponent<sequence>().controller = 1;
             //p1.GetComponentInChildren<HeadChanger>().SetHead(1);
         }
         if (PlayerPrefs.GetInt("P2") == 1)
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
             p2.name = "Player 2";
             p2.transform.position = spawnPoints[1].transform.position;
             p2.GetComponent<PrisonerController>().SetUpGamePad(2);
+            p2.GetComponent<sequence>().controller = 2;
             //p2.GetComponentInChildren<HeadChanger>().SetHead(2);
         }
         if (PlayerPrefs.GetInt("P3") == 1)
@@ -49,6 +52,7 @@ public class GameManager : MonoBehaviour
             p3.name = "Player 3";
             p3.transform.position = spawnPoints[2].transform.position;
             p3.GetComponent<PrisonerController>().SetUpGamePad(3);
+            p3.GetComponent<sequence>().controller = 3;
             //p3.GetComponentInChildren<HeadChanger>().SetHead(3);
         }
         if (PlayerPrefs.GetInt("P4") == 1)
@@ -57,6 +61,7 @@ public class GameManager : MonoBehaviour
             p4.name = "Player 4";
             p4.transform.position = spawnPoints[3].transform.position;
             p4.GetComponent<PrisonerController>().SetUpGamePad(4);
+            p4.GetComponent<sequence>().controller = 4;
             //p4.GetComponentInChildren<HeadChanger>().SetHead(4);
         }
     }
