@@ -19,6 +19,9 @@ public class BackgroundManager : MonoBehaviour
     public List<GameObject> planets = new List<GameObject>();
 	public List<FlybyItem> flybyItems = new List<FlybyItem>();
 
+	private int backgroundsLeftToMove = 0;
+	private int direction = 1;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -38,6 +41,12 @@ public class BackgroundManager : MonoBehaviour
         ProcessSpaceBackgrounds();
         ProcessPlanets();
 		ProcessFlybys ();
+
+		if (Input.GetKeyDown (KeyCode.UpArrow))
+			FauxMoveUp (2);
+
+		if (Input.GetKeyDown (KeyCode.DownArrow))
+			FauxMoveDown (2);
 	}
 
     private void ProcessSpaceBackgrounds()
@@ -46,7 +55,7 @@ public class BackgroundManager : MonoBehaviour
         {
             spaceScenes[i].transform.Translate(speed);
 
-            if (spaceScenes[i].transform.position.x <= terminationZone.x && spaceScenes[i].transform.position.y <= terminationZone.y)
+            if (spaceScenes[i].transform.position.x <= terminationZone.x)
             {
                 Destroy(spaceScenes[i]);
                 spaceScenes.RemoveAt(i);
@@ -129,10 +138,16 @@ public class BackgroundManager : MonoBehaviour
             p.transform.parent = newScene.transform;
         }
 
-        SpawnPlanets(newScene.transform.position);
+        SpawnPlanets(newScene.transform.position, newScene);
+
+		if (backgroundsLeftToMove > 0)
+		{
+			SpawnAboveAndBelowAndMove (newScene, direction);
+			backgroundsLeftToMove--;
+		}
     }
 
-    private void SpawnPlanets(Vector2 backgroundPosition)
+    private void SpawnPlanets(Vector2 backgroundPosition, GameObject requestBackground)
     {
         for (int i = 0; i < Random.Range(0, 2); i++)
         {
@@ -145,10 +160,62 @@ public class BackgroundManager : MonoBehaviour
             planet.transform.localScale = new Vector3(size, size, 1);
             planet.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
 
-            planet.transform.parent = dynamicObjectHolder.transform;
+			planet.transform.parent = requestBackground.transform;
             planets.Add(planet);
         }
     }
+
+	public void FauxMoveUp(int backgroundsToMove)
+	{
+		foreach(GameObject g in spaceScenes)
+		{
+			SpawnAboveAndBelowAndMove (g, -1);
+		}
+
+		//backgroundsLeftToMove = backgroundsToMove;
+		direction = 1;
+	}
+
+	public void FauxMoveDown(int backgroundsToMove)
+	{
+		foreach(GameObject g in spaceScenes)
+		{
+			SpawnAboveAndBelowAndMove (g, 1);
+		}
+		
+		//backgroundsLeftToMove = backgroundsToMove;
+		direction = -1;
+	}
+
+	public void SpawnAboveAndBelowAndMove(GameObject g, int direction)
+	{
+		GameObject up = Instantiate (spaceSceneResources[Random.Range (0, spaceSceneResources.Length)], new Vector3(g.transform.position.x, 10.80f, g.transform.position.z), Quaternion.identity) as GameObject;
+		GameObject down = Instantiate (spaceSceneResources[Random.Range (0, spaceSceneResources.Length)], new Vector3(g.transform.position.x, -10.80f, g.transform.position.z), Quaternion.identity) as GameObject;
+		
+		up.transform.parent = g.transform;
+		down.transform.parent = g.transform;
+		
+		StartCoroutine (MoveBackground(g, direction));
+		StartCoroutine (MoveBackground(up, direction));
+		StartCoroutine (MoveBackground(down, direction));
+	}
+
+	IEnumerator MoveBackground(GameObject background, int direction)
+	{
+		float amountToMove = 2f;
+		float amountMoved = 0;
+
+		while (amountMoved < amountToMove)
+		{
+			if (background == null)
+				break;
+
+			amountMoved += 0.01f;
+
+			background.transform.position = Vector2.MoveTowards (background.transform.position, new Vector2(background.transform.position.x, background.transform.position.y + direction), 0.01f);
+			yield return null;
+		}
+	}
 
     void OnDrawGizmosSelected()
     {
