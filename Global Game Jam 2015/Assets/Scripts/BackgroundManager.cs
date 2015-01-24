@@ -13,8 +13,11 @@ public class BackgroundManager : MonoBehaviour
     public GameObject[] planetResources;
     public GameObject[] particleResources;
 
+	public GameObject[] flybyItemsResources;
+
     public List<GameObject> spaceScenes = new List<GameObject>();
     public List<GameObject> planets = new List<GameObject>();
+	public List<FlybyItem> flybyItems = new List<FlybyItem>();
 
 	// Use this for initialization
 	void Start ()
@@ -34,6 +37,7 @@ public class BackgroundManager : MonoBehaviour
     {
         ProcessSpaceBackgrounds();
         ProcessPlanets();
+		ProcessFlybys ();
 	}
 
     private void ProcessSpaceBackgrounds()
@@ -65,6 +69,42 @@ public class BackgroundManager : MonoBehaviour
             }
         }
     }
+
+	public void ProcessFlybys()
+	{
+		if (Random.Range (0, 50) == 0)
+		{
+			FlybyItem flybyItem = new FlybyItem();
+
+			int direction = 1;
+
+			if (Random.Range (0, 2) == 0)
+				direction = -1;
+
+			float startX = 20f;
+			float startY = Random.Range (0f, 10.80f);
+			float endX = -20f;
+			float endY = (startY * 2) * direction;
+
+			flybyItem.destination = new Vector2(endX, endY);
+			flybyItem.speed = Random.Range (0.05f, 0.1f);
+			flybyItem.item = Instantiate (flybyItemsResources[Random.Range (0, flybyItemsResources.Length)], new Vector2(startX, startY), Quaternion.identity) as GameObject;
+			flybyItem.item.transform.parent = dynamicObjectHolder.transform;
+
+			flybyItems.Add (flybyItem);
+		}
+
+		for (int i = 0; i < flybyItems.Count; i++)
+		{
+			flybyItems[i].item.transform.position = Vector2.MoveTowards (flybyItems[i].item.transform.position, flybyItems[i].destination, flybyItems[i].speed);
+			
+			if (Vector2.Distance (flybyItems[i].item.transform.position, flybyItems[i].destination) < 0.1f)
+			{
+				Destroy (flybyItems[i].item);
+				flybyItems.RemoveAt(i);
+			}
+		}
+	}
 
     private void SpawnSpaceScene()
     {
