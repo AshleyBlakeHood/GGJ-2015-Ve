@@ -4,15 +4,27 @@ using XInputDotNetPure;
 
 public class ControllerTesting : MonoBehaviour {
 
+    float j1, j2, j3, j4;
+
+    GamePadState state1;
+    GamePadState state2;
+    GamePadState state3;
+    GamePadState state4;
+
 	// Use this for initialization
 	void Start () {
+
+        
 	
 	}
-
-    float j1, j2, j3, j4;
 	
 	// Update is called once per frame
 	void Update () {
+
+        state1 = GamePad.GetState(PlayerIndex.One);
+        state2 = GamePad.GetState(PlayerIndex.Two);
+        state3 = GamePad.GetState(PlayerIndex.Three);
+        state4 = GamePad.GetState(PlayerIndex.Four);
 
         if (Input.GetButton("j1HorizontalLeft"))
             Debug.Log("Joystick 1 Horizontal Left Pressed");
@@ -48,10 +60,60 @@ public class ControllerTesting : MonoBehaviour {
             Debug.Log("Joystick 1 B Pressed");
 
         if (Input.GetButton("j1X"))
-            Debug.Log("Joystick 1 X Pressed");
+        {
+            //Debug.Log("Joystick 1 X Pressed");
+
+            if (state1.Buttons.X.ToString() == "Pressed")
+                Debug.Log("Joystick 1 X Pressedj1X");
+            if (state2.Buttons.X.ToString() == "Pressed")
+                Debug.Log("Joystick 2 X Pressedj1X");
+            if (state3.Buttons.X.ToString() == "Pressed")
+                Debug.Log("Joystick 3 X Pressedj1X");
+            if (state4.Buttons.X.ToString() == "Pressed")
+                Debug.Log("Joystick 4 X Pressedj1X");
+        }
 
         if (Input.GetButton("j2X"))
-            Debug.Log("Joystick 2 X Pressed");
+        {
+            //Debug.Log("Joystick 1 X Pressed");
+
+            if (state1.Buttons.X.ToString() == "Pressed")
+                Debug.Log("Joystick 1 X Pressedj2X");
+            if (state2.Buttons.X.ToString() == "Pressed")
+                Debug.Log("Joystick 2 X Pressedj2X");
+            if (state3.Buttons.X.ToString() == "Pressed")
+                Debug.Log("Joystick 3 X Pressedj2X");
+            if (state4.Buttons.X.ToString() == "Pressed")
+                Debug.Log("Joystick 4 X Pressedj2X");
+        }
+
+        if (Input.GetButton("j3X"))
+        {
+            //Debug.Log("Joystick 1 X Pressed");
+
+            if (state1.Buttons.X.Equals("Pressed"))
+                Debug.Log("Joystick 1 X Pressed");
+            if (state2.Buttons.X.Equals("Pressed"))
+                Debug.Log("Joystick 2 X Pressed");
+            if (state3.Buttons.X.Equals("Pressed"))
+                Debug.Log("Joystick 3 X Pressed");
+            if (state4.Buttons.X.Equals("Pressed"))
+                Debug.Log("Joystick 4 X Pressed");
+        }
+
+        if (Input.GetButton("j4X"))
+        {
+            //Debug.Log("Joystick 1 X Pressed");
+
+            if (state1.Buttons.X.Equals("Pressed"))
+                Debug.Log("Joystick 1 X Pressed");
+            if (state2.Buttons.X.Equals("Pressed"))
+                Debug.Log("Joystick 2 X Pressed");
+            if (state3.Buttons.X.Equals("Pressed"))
+                Debug.Log("Joystick 3 X Pressed");
+            if (state4.Buttons.X.Equals("Pressed"))
+                Debug.Log("Joystick 4 X Pressed");
+        }
 
         if (Input.GetButton("j1Y"))
             Debug.Log("Joystick 1 Y Pressed");
@@ -74,26 +136,15 @@ public class ControllerTesting : MonoBehaviour {
         if (Input.GetButton("j1RightPressed"))
             Debug.Log("Joystick 1 Right Pressed");
 
-        
 
-        if (Input.GetButtonDown("j1X"))
-        {
-        //     //Set vibration according to triggers
-        //    GamePad.SetVibration(PlayerIndex.Two, testA, testA);
-
-        //    if (testA != 0)
-        //    testA = testA - 0.1f;
-
-
-        //    Debug.Log(testA);
-            vibrate(2);
-        }
-
-        if (Input.GetButtonDown("j2X"))
+        if (state1.Buttons.X.ToString() == "Pressed")
         {
             vibrate(1);
-        //     //Set vibration according to triggers
-        //    GamePad.SetVibration(PlayerIndex.One, testA, testA);
+        }
+
+        if (state2.Buttons.X.ToString() == "Pressed")
+        {
+            vibrate(2);
         }
 
 
@@ -106,12 +157,12 @@ public class ControllerTesting : MonoBehaviour {
             case 1:
                 StartCoroutine(wait1());
                 
-                GamePad.SetVibration(PlayerIndex.Two, j1, j1);
+                
                 break;
             case 2:
                 StartCoroutine(wait2());
                 
-                GamePad.SetVibration(PlayerIndex.One, j1, j1);
+                
                 break;
         }
     }
@@ -121,22 +172,26 @@ public class ControllerTesting : MonoBehaviour {
     {
         j1 = 0.9f;
 
-        yield return new WaitForSeconds(1.0f);
+        GamePad.SetVibration(PlayerIndex.One, j1, j1);
+
+        yield return new WaitForSeconds(0.5f);
 
         j1 = 0.0f;
 
-        GamePad.SetVibration(PlayerIndex.Two, j1, j1);
+        GamePad.SetVibration(PlayerIndex.One, j1, j1);
     }
 
     IEnumerator wait2() // Runs methods every 10 seconds
     {
         j1 = 0.9f;
 
-        yield return new WaitForSeconds(1.0f);
+        GamePad.SetVibration(PlayerIndex.Two, j1, j1);
+
+        yield return new WaitForSeconds(0.5f);
 
         j1 = 0.0f;
 
-        GamePad.SetVibration(PlayerIndex.One, j1, j1);
+        GamePad.SetVibration(PlayerIndex.Two, j1, j1);
     }
 
 }
