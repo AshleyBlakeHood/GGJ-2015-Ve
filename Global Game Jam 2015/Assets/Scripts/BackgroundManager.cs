@@ -11,6 +11,7 @@ public class BackgroundManager : MonoBehaviour
 
     public GameObject[] spaceSceneResources;
     public GameObject[] planetResources;
+    public GameObject[] particleResources;
 
     public List<GameObject> spaceScenes = new List<GameObject>();
     public List<GameObject> planets = new List<GameObject>();
@@ -80,6 +81,14 @@ public class BackgroundManager : MonoBehaviour
 
         spaceScenes.Add(newScene);
         newScene.transform.parent = dynamicObjectHolder.transform;
+
+        //Spawn Particles?
+        if (Random.Range(0, 5) == 0)
+        {
+            GameObject p = Instantiate(particleResources[Random.Range(0, particleResources.Length - 1)], new Vector3(newScene.transform.position.x, newScene.transform.position.y, -0.5f), Quaternion.identity) as GameObject;
+            p.transform.parent = newScene.transform;
+        }
+
         SpawnPlanets(newScene.transform.position);
     }
 
