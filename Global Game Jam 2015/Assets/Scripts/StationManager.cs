@@ -11,6 +11,8 @@ public class StationManager : MonoBehaviour
 
 	float nextbreak = 0;
 
+    public bool allowBreaking = true;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -20,7 +22,7 @@ public class StationManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Time.time > nextbreak)
+		if (Time.time > nextbreak && allowBreaking == true)
 		{
 			stations [Random.Range (0, stations.Count)].BreakStation ();
 			nextbreak = Time.time + Random.Range (5f, 10f);

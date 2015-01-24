@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     public List<GameObject> spawnPoints;
-	public int currentPlayers = 3;
+	public int currentPlayers = 3, fixes = 0;
 
     public GameObject Character;
 
@@ -13,16 +13,36 @@ public class GameManager : MonoBehaviour
 
 	public List<PrisonerController> players = new List<PrisonerController>();
 
+    Direction dir;
+    StationManager sm;
+
+    bool runOnce = false;
+
 	// Use this for initialization
 	void Start ()
 	{
+        dir = GameObject.FindObjectOfType<Direction>();
+        sm = GameObject.FindObjectOfType<StationManager>();
+
 		currentPlayers = PlayerPrefs.GetInt ("Player Count");
         currentPlayers = 1;
         SpawnPlayers();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
+
+        if (fixes == 0 && runOnce == false)
+        {
+            fixes = 0;
+            dir.toggleVote();
+            sm.allowBreaking = false;
+
+            Debug.Log("Yoo");
+
+            runOnce = true;
+        }
 	
 	}
 

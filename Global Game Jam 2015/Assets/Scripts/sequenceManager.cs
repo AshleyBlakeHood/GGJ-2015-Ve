@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class sequenceManager : MonoBehaviour {
 
-
+    GameManager gm;
 
     public List<sequence> sequences = new List<sequence>();
 
@@ -17,7 +17,7 @@ public class sequenceManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+        gm = GameObject.FindObjectOfType<GameManager>();
 	}
 	
 	// Update is called once per frame
@@ -62,6 +62,7 @@ public class sequenceManager : MonoBehaviour {
             completed = 0;
             
             station = null; // Resets station so that a broken station can overwrite
+            gm.fixes++;
         }
 	
 	}

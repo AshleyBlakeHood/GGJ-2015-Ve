@@ -4,23 +4,30 @@ using System.Collections;
 public class ArrowManager : MonoBehaviour {
 	public Vector3 upwards;
 	public Vector3 right;
-	public Vector3 left;
+	public Vector3 down;
 	public GameObject arrow;
 
 	private GameObject upArrow;
 	private GameObject rightArrow;
-	private GameObject leftArrow;
+	private GameObject downArrow;
+
+    StationManager sm;
+
 	// Use this for initialization
-	void Start () {
-		upwards = new Vector3(0,2.9f,-1);
-		right = new Vector3(5,2.9f,-1);
-		left = new Vector3(-5,2.9f,-1);
+	void Start () 
+    {
+        sm = GameObject.FindObjectOfType<StationManager>();
+
+        upwards = new Vector3(7.5f, 2.9f, -1);
+		right = new Vector3(7.5f,0,-1);
+        down = new Vector3(7.5f, -2.5f, -1);
 		//Set the vectors to the locs where to place the arrows
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update () 
+    {
+
 	}
 
 
@@ -30,8 +37,8 @@ public class ArrowManager : MonoBehaviour {
 		//Instantiate arrows to display options for the players to take
 		rightArrow = Instantiate(arrow, right, Quaternion.identity) as GameObject;
 		rightArrow.transform.Rotate(0f, 0f, 270f);
-		leftArrow = Instantiate(arrow, left, Quaternion.identity) as GameObject;
-		leftArrow.transform.Rotate(0f, 0f, 90f);
+		downArrow = Instantiate(arrow, down, Quaternion.identity) as GameObject;
+		downArrow.transform.Rotate(0f, 0f, 180f);
 		//Rotate the arrows
 	}
 
@@ -39,22 +46,24 @@ public class ArrowManager : MonoBehaviour {
 	{
 		if (direction == "Up") {
 			Destroy(rightArrow);
-			Destroy(leftArrow);
+			Destroy(downArrow);
 			//Destroy the other two arrows which weren't chosen
 			StartCoroutine(imminentDestruction(upArrow));
 			//Start a coroutine for destruction
 		}
 		if (direction == "Right") {
-			Destroy(leftArrow);
+			Destroy(downArrow);
 			Destroy(upArrow);
 			StartCoroutine(imminentDestruction(rightArrow));
 		}
-		if (direction == "Left") {
+		if (direction == "Down") {
 			Destroy(rightArrow);
 			Destroy(upArrow);
-			StartCoroutine(imminentDestruction(leftArrow));
+			StartCoroutine(imminentDestruction(downArrow));
 		}
 		//Depends on the chosen direction, destroy the others
+
+        sm.allowBreaking = true;
 	}
 
 	public IEnumerator imminentDestruction(GameObject chosenArrow)
