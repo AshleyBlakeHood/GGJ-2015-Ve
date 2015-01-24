@@ -19,7 +19,7 @@ public class ArrowManager : MonoBehaviour {
         sm = GameObject.FindObjectOfType<StationManager>();
 
         upwards = new Vector3(7.5f, 2.9f, -1);
-		right = new Vector3(7.5f,0,-1);
+		right = new Vector3(6.7f,0,-1);
         down = new Vector3(7.5f, -2.5f, -1);
 		//Set the vectors to the locs where to place the arrows
 	}
