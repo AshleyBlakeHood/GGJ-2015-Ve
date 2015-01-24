@@ -736,6 +736,7 @@ GameObject:
   - 4: {fileID: 1896891753}
   - 114: {fileID: 1896891752}
   - 114: {fileID: 1896891754}
+  - 114: {fileID: 1896891755}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -806,6 +807,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stations: []
+--- !u!114 &1896891755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1896891751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5198e3fa0a115a8418b2911bf567e31f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPlayers: 0
+  globalScore: 0
 --- !u!1 &2060916565
 GameObject:
   m_ObjectHideFlags: 0

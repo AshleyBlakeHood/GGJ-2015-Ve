@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
 	public int currentPlayers = 0;
 
+	public int globalScore = 0;
+
 	//public List<Player> players = new List<Player>();
 
 	// Use this for initialization
