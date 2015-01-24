@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class sequenceManager : MonoBehaviour {
 
@@ -14,6 +15,11 @@ public class sequenceManager : MonoBehaviour {
 
     Station station;
     int lengths, completed = 0;
+
+    public List<GameObject> sequenceDisplay;
+    // 0 = A, 1 = B, 2 = X, 3 = Y, 4 = Left Shoulder, 5 = Right Shoulder
+    public List<Sprite> promptSprites;
+    public GameObject promptText;
 
 	// Use this for initialization
 	void Start () {
@@ -64,6 +70,11 @@ public class sequenceManager : MonoBehaviour {
             station = null; // Resets station so that a broken station can overwrite
             gm.fixes++;
         }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            sequence();
+        }
 	
 	}
 
@@ -80,6 +91,7 @@ public class sequenceManager : MonoBehaviour {
 
     public void sequence() // Randomly picks the sequence of events
     {
+        Debug.Log(lengths);
         // Resetting all the bools and int used to calculate total completed
         playerOne = false;
         playerTwo = false;
@@ -101,6 +113,34 @@ public class sequenceManager : MonoBehaviour {
             // 0 = A, 1 = B, 2 = X, 3 = Y, 4 = Left Shoulder, 5 = Right Shoulder
         }
 
+        //Displays the sequence on screen
+        for (int j = 0; j < sequenceI.Length; j++)
+        {
+            switch (sequenceI[j])
+            {
+                case 0:
+                    sequenceDisplay[j].GetComponent<SpriteRenderer>().sprite = promptSprites[0];
+                    break;
+                case 1:
+                    sequenceDisplay[j].GetComponent<SpriteRenderer>().sprite = promptSprites[1];
+                    break;
+                case 2:
+                    sequenceDisplay[j].GetComponent<SpriteRenderer>().sprite = promptSprites[2];
+                    break;
+                case 3:
+                    sequenceDisplay[j].GetComponent<SpriteRenderer>().sprite = promptSprites[3];
+                    break;
+                case 4:
+                    sequenceDisplay[j].GetComponent<SpriteRenderer>().sprite = promptSprites[4];
+                    break;
+                case 5:
+                    sequenceDisplay[j].GetComponent<SpriteRenderer>().sprite = promptSprites[5];
+                    break;
+                default:
+                    break;
+            }
+        }
+
         Debug.Log(string.Join("+", Array.ConvertAll<int, String>(sequenceI, Convert.ToString))); // Debug output of sequence
 
         foreach (sequence hold in sequences) // Passes sequence to each character
@@ -110,5 +150,10 @@ public class sequenceManager : MonoBehaviour {
         }
 
         //sequenceOutput(length, sequenceI); // Calls the output method to output to screen and wait for users input
+    }
+
+    public void SetPromptText(int playerID)
+    {
+        promptText.GetComponent<Text>().text = "PLAYER " + playerID + " GOT IT WRONG! TRY AGAIN!";
     }
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class Station : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class Station : MonoBehaviour
     bool flashing = false;
 
     public GameObject firstAlert, secondAlert;
+
+    public GameObject sequenceDisplay, hintText;
 
 	// Use this for initialization
 	void Start ()
@@ -64,7 +67,7 @@ public class Station : MonoBehaviour
                 {
                     gameManager.players[i].canMove = false;
                 }
-                
+                hintText.GetComponent<Text>().text = "HIT THE BUTTONS IN ORDER! QUICK!";
                 inSequence = true;
                 sm.sequnceStation(6, this);
             }
@@ -89,6 +92,8 @@ public class Station : MonoBehaviour
 	/// </summary>
 	public void BreakStation()
 	{
+        hintText.GetComponent<Text>().text = "EVERYONE GET TO THE STATION!";
+        //hintText.guiText.text = "GET TO THE STATION!";
 		broken = true;
         spriteRenderer.enabled = true;
         firstAlert.GetComponent<AudioSource>().Play();
@@ -127,6 +132,13 @@ public class Station : MonoBehaviour
         inSequence = false;
 
         flashing = false;
+
+        hintText.GetComponent<Text>().text = "YOU DID IT!";
+        SpriteRenderer[] temp = sequenceDisplay.GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer s in temp)
+        {
+            s.sprite = null;
+        }
 	}
 
 	/// <summary>

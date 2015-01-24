@@ -55,7 +55,7 @@ public class sequence : MonoBehaviour {
                         playerLoc = 0; // Resetting the players location in the sequence
                         //Debug.Log("Wrong Button");
                         Debug.Log("Player " + controller + " got the button wrong restarting sequences");
-
+                        sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
                     }
 
@@ -77,7 +77,7 @@ public class sequence : MonoBehaviour {
                         playerLoc = 0; // Resetting the players location in the sequence
                         //Debug.Log("Wrong Button");
                         Debug.Log("Player " + controller + " got the button wrong restarting sequences");
-
+                        sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
                     }
 
@@ -99,7 +99,7 @@ public class sequence : MonoBehaviour {
                         playerLoc = 0; // Resetting the players location in the sequence
                         //Debug.Log("Wrong Button");
                         Debug.Log("Player " + controller + " got the button wrong restarting sequences");
-
+                        sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
                     }
 
@@ -121,7 +121,7 @@ public class sequence : MonoBehaviour {
                         playerLoc = 0; // Resetting the players location in the sequence
                         //Debug.Log("Wrong Button");
                         Debug.Log("Player " + controller + " got the button wrong restarting sequences");
-
+                        sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
                     }
 
@@ -143,7 +143,7 @@ public class sequence : MonoBehaviour {
                         playerLoc = 0; // Resetting the players location in the sequence
                         //Debug.Log("Wrong Button");
                         Debug.Log("Player " + controller + " got the button wrong restarting sequences");
-
+                        sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
                     }
 
@@ -165,7 +165,7 @@ public class sequence : MonoBehaviour {
                         playerLoc = 0; // Resetting the players location in the sequence
                         //Debug.Log("Wrong Button");
                         Debug.Log("Player " + controller + " got the button wrong restarting sequences");
-
+                        sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
                     }
 
