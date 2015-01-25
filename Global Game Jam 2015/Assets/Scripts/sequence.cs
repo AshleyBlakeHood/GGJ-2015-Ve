@@ -40,7 +40,7 @@ public class sequence : MonoBehaviour {
         if (sequenceI.Length != 0)
         {
 
-            if (state.Buttons.A == ButtonState.Pressed) // Checking for A depressed
+            if (state.Buttons.A == ButtonState.Pressed || Input.GetKeyDown("y")) // Checking for A depressed
             {
                 if (downA == false) // Makes sure only ran once while the button is depressed
                 {
@@ -62,7 +62,7 @@ public class sequence : MonoBehaviour {
                     downA = true; // Sets the bool so that this code is only called once per depression
                 }
             }
-            else if (state.Buttons.B == ButtonState.Pressed) // Checking for B depressed
+            else if (state.Buttons.B == ButtonState.Pressed || Input.GetKeyDown("u")) // Checking for B depressed
             {
                 if (downB == false) // Makes sure only ran once while the button is depressed
                 {
@@ -84,7 +84,7 @@ public class sequence : MonoBehaviour {
                     downB = true; // Sets the bool so that this code is only called once per depression
                 }
             }
-            else if (state.Buttons.X == ButtonState.Pressed) // Checking for X depressed
+            else if (state.Buttons.X == ButtonState.Pressed || Input.GetKeyDown("i")) // Checking for X depressed
             {
                 if (downX == false) // Makes sure only ran once while the button is depressed
                 {
@@ -106,7 +106,7 @@ public class sequence : MonoBehaviour {
                     downX = true; // Sets the bool so that this code is only called once per depression
                 }
             }
-            else if (state.Buttons.Y == ButtonState.Pressed) // Checking for Y depressed
+            else if (state.Buttons.Y == ButtonState.Pressed || Input.GetKeyDown("o")) // Checking for Y depressed
             {
                 if (downY == false) // Makes sure only ran once while the button is depressed
                 {
@@ -128,7 +128,7 @@ public class sequence : MonoBehaviour {
                     downY = true; // Sets the bool so that this code is only called once per depression
                 }
             }
-            else if (state.Buttons.LeftShoulder == ButtonState.Pressed) // Checking for Left Shoulder depressed
+            else if (state.Buttons.LeftShoulder == ButtonState.Pressed || Input.GetKeyDown("j")) // Checking for Left Shoulder depressed
             {
                 if (downLS == false) // Makes sure only ran once while the button is depressed
                 {
@@ -150,7 +150,7 @@ public class sequence : MonoBehaviour {
                     downLS = true; // Sets the bool so that this code is only called once per depression
                 }
             }
-            if (state.Buttons.RightShoulder == ButtonState.Pressed) // Checking for Right Shoulder depressed
+            if (state.Buttons.RightShoulder == ButtonState.Pressed || Input.GetKeyDown("k")) // Checking for Right Shoulder depressed
             {
                 if (downRS == false) // Makes sure only ran once while the button is depressed
                 {
@@ -173,17 +173,17 @@ public class sequence : MonoBehaviour {
                 }
             }
 
-            if (state.Buttons.A == ButtonState.Released && downA == true) // Checks if button is released and that the button has been depressed but the bool not reset
+            if ((state.Buttons.A == ButtonState.Released || Input.GetKeyUp("y")) && downA == true) // Checks if button is released and that the button has been depressed but the bool not reset
                 downA = false; // Resets the bool so that the button can be used next depression
-            if (state.Buttons.B == ButtonState.Released && downB == true) // Checks if button is released and that the button has been depressed but the bool not reset
+            if ((state.Buttons.B == ButtonState.Released || Input.GetKeyUp("u")) && downB == true) // Checks if button is released and that the button has been depressed but the bool not reset
                 downB = false; // Resets the bool so that the button can be used next depression
-            if (state.Buttons.X == ButtonState.Released && downX == true) // Checks if button is released and that the button has been depressed but the bool not reset
+            if ((state.Buttons.X == ButtonState.Released || Input.GetKeyUp("i")) && downX == true) // Checks if button is released and that the button has been depressed but the bool not reset
                 downX = false; // Resets the bool so that the button can be used next depression
-            if (state.Buttons.Y == ButtonState.Released && downY == true) // Checks if button is released and that the button has been depressed but the bool not reset
+            if ((state.Buttons.Y == ButtonState.Released || Input.GetKeyUp("o")) && downY == true) // Checks if button is released and that the button has been depressed but the bool not reset
                 downY = false; // Resets the bool so that the button can be used next depression
-            if (state.Buttons.LeftShoulder == ButtonState.Released && downLS == true) // Checks if button is released and that the button has been depressed but the bool not reset
+            if ((state.Buttons.LeftShoulder == ButtonState.Released || Input.GetKeyUp("j")) && downLS == true) // Checks if button is released and that the button has been depressed but the bool not reset
                 downLS = false; // Resets the bool so that the button can be used next depression
-            if (state.Buttons.RightShoulder == ButtonState.Released && downRS == true) // Checks if button is released and that the button has been depressed but the bool not reset
+            if ((state.Buttons.RightShoulder == ButtonState.Released || Input.GetKeyUp("k")) && downRS == true) // Checks if button is released and that the button has been depressed but the bool not reset
                 downRS = false; // Resets the bool so that the button can be used next depression
 
             if (playerLoc >= length && runOnce == false) // Checking if the player has successfully completed the sequence
