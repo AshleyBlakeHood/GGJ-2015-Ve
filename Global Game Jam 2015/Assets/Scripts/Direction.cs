@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using XInputDotNetPure;
+using UnityEngine.UI;
 
 public class Direction : MonoBehaviour
 {
@@ -194,6 +195,7 @@ public class Direction : MonoBehaviour
                 gm.fixes = 0;
                 sm.allowBreaking = false;
                 arrows.instantiateArrows();
+                gm.promptText.GetComponent<Text>().text = "LOOK OUT AHEAD!";
             }
         }
 	}
@@ -279,6 +281,7 @@ public class Direction : MonoBehaviour
             gm.runOnce = false;
             gm.fixes = 0;
             toggleVote();
+            gm.promptText.GetComponent<Text>().text = "WE MISSED IT! GOOD!";
             //Reset the votes
         //}
 	}

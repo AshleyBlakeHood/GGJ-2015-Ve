@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public List<GameObject> spawnPoints;
 	public int currentPlayers = 3, fixes = 0;
 
-    public GameObject Character, EndGameParticles;
+    public GameObject Character, EndGameParticles, scoreText, promptText;
 
 	public int globalScore = 0;
 
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-
+        scoreText.GetComponent<Text>().text = "Score: " + globalScore;
         if (fixes >= 2 && runOnce == false)
         {
             //fixes = 0;

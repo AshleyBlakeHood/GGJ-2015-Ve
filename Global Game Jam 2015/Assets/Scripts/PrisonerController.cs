@@ -12,6 +12,7 @@ public class PrisonerController : MonoBehaviour
     GamePadState gpState;
     PlayerIndex playerIndex;
     public bool canMove = true;
+    Animator anims;
 
     public List<Sprite> heads;
 
@@ -21,6 +22,8 @@ public class PrisonerController : MonoBehaviour
         gameManager = GameObject.FindObjectOfType<GameManager>();
 
         gameManager.players.Add(this);
+
+        anims = GetComponent<Animator>();
 	}
 
     public void SetUpGamePad(int playerNumber)
@@ -78,19 +81,23 @@ public class PrisonerController : MonoBehaviour
 
             if (Input.GetKey(KeyCode.A) || gpState.ThumbSticks.Left.X <= -0.3f)
             {
+                anims.CrossFade("left", 0f);
                 MoveLeft();
             }
             if (Input.GetKey(KeyCode.D) || gpState.ThumbSticks.Left.X >= 0.3f)
             {
                 MoveRight();
+                anims.CrossFade("right", 0f);
             }
             if (Input.GetKey(KeyCode.W) || gpState.ThumbSticks.Left.Y >= 0.3f)
             {
                 MoveForwards();
+                anims.CrossFade("stationary", 0.5f);
             }
             if (Input.GetKey(KeyCode.S) || gpState.ThumbSticks.Left.Y <= -0.3f)
             {
                 MoveBackwards();
+                anims.CrossFade("stationary", 0.5f);
             }
         }
 	
