@@ -170,6 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbc69a46356d8244849287dd5c5fa8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menu: []
+  buttons: 
 --- !u!1001 &1497320748
 Prefab:
   m_ObjectHideFlags: 0
