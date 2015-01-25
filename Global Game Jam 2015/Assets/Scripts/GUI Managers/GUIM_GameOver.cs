@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using XInputDotNetPure;
@@ -23,6 +24,29 @@ public class GUIM_GameOver : MonoBehaviour
 		menu.Add("Main Menu");
 		menu.Add("Quit");
 		buttons = new bool[menu.Count];
+
+		//Set UI Values
+		transform.FindChild ("Global Score").GetComponent<Text>().text = "Global Score: " + PlayerPrefs.GetInt ("Global Score");
+
+		if (PlayerPrefs.GetInt("P1") == 1)
+			transform.FindChild ("Player 1 Score").GetComponent<Text>().text = "Player 1 Score: " + (globalScore - PlayerPrefs.GetInt ("Fails Player 1"));
+		else
+			transform.FindChild ("Player 1 Score").GetComponent<Text>().text = "";
+
+		if (PlayerPrefs.GetInt("P2") == 1)
+			transform.FindChild ("Player 2 Score").GetComponent<Text>().text = "Player 2 Score: " + (globalScore - PlayerPrefs.GetInt ("Fails Player 2"));
+		else
+			transform.FindChild ("Player 2 Score").GetComponent<Text>().text = "";
+
+		if (PlayerPrefs.GetInt("P3") == 1)
+			transform.FindChild ("Player 3 Score").GetComponent<Text>().text = "Player 3 Score: " + (globalScore - PlayerPrefs.GetInt ("Fails Player 3"));
+		else
+			transform.FindChild ("Player 3 Score").GetComponent<Text>().text = "";
+
+		if (PlayerPrefs.GetInt("P4") == 1)
+			transform.FindChild ("Player 4 Score").GetComponent<Text>().text = "Player 4 Score: " + (globalScore - PlayerPrefs.GetInt ("Fails Player 4"));
+		else
+			transform.FindChild ("Player 4 Score").GetComponent<Text>().text = "";
 	}
 	
 	// Update is called once per frame
@@ -37,11 +61,11 @@ public class GUIM_GameOver : MonoBehaviour
 
 	void OnGUI()
 	{
-		GUI.Label (new Rect (Screen.width / 2 - 50, 10, 100, 60), "Global Score: " + globalScore);
+		//GUI.Label (new Rect (Screen.width / 2 - 50, 10, 100, 60), "Global Score: " + globalScore);
 
 		for (int count = 0; count < menu.Count; count++) {
 			GUI.SetNextControlName(menu[count]);
-			buttons[count] = GUI.Button(new Rect(Screen.width / 2 - 125, 100 * (count + 1), 250, 30), menu[count]);
+			buttons[count] = GUI.Button(new Rect(Screen.width / 2 - 125, (Screen.height * 0.3f) + ((count + 1) * (Screen.height * 0.1f)), 250, 30), menu[count]);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Space) || ButtonStateCheck("A"))

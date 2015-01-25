@@ -22,6 +22,11 @@ public class sequence : MonoBehaviour {
         sm = GameObject.FindObjectOfType<sequenceManager>();
 
         sm.sequences.Add(this);
+
+		PlayerPrefs.SetInt ("Fails Player 1", 0);
+		PlayerPrefs.SetInt ("Fails Player 2", 0);
+		PlayerPrefs.SetInt ("Fails Player 3", 0);
+		PlayerPrefs.SetInt ("Fails Player 4", 0);
 	}
 	
 	// Update is called once per frame
@@ -39,7 +44,6 @@ public class sequence : MonoBehaviour {
 
         if (sequenceI.Length != 0)
         {
-
             if (state.Buttons.A == ButtonState.Pressed) // Checking for A depressed
             {
                 if (downA == false) // Makes sure only ran once while the button is depressed
@@ -57,6 +61,7 @@ public class sequence : MonoBehaviour {
                         //Debug.Log("Player " + controller + " got the button wrong restarting sequences");
                         sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
+						PlayerFail();
                     }
 
                     downA = true; // Sets the bool so that this code is only called once per depression
@@ -79,6 +84,7 @@ public class sequence : MonoBehaviour {
                         //Debug.Log("Player " + controller + " got the button wrong restarting sequences");
                         sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
+						PlayerFail();
                     }
 
                     downB = true; // Sets the bool so that this code is only called once per depression
@@ -101,6 +107,7 @@ public class sequence : MonoBehaviour {
                         //Debug.Log("Player " + controller + " got the button wrong restarting sequences");
                         sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
+						PlayerFail();
                     }
 
                     downX = true; // Sets the bool so that this code is only called once per depression
@@ -123,6 +130,7 @@ public class sequence : MonoBehaviour {
                         //Debug.Log("Player " + controller + " got the button wrong restarting sequences");
                         sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
+						PlayerFail();
                     }
 
                     downY = true; // Sets the bool so that this code is only called once per depression
@@ -145,6 +153,7 @@ public class sequence : MonoBehaviour {
                         //Debug.Log("Player " + controller + " got the button wrong restarting sequences");
                         sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
+						PlayerFail();
                     }
 
                     downLS = true; // Sets the bool so that this code is only called once per depression
@@ -167,6 +176,7 @@ public class sequence : MonoBehaviour {
                         //Debug.Log("Player " + controller + " got the button wrong restarting sequences");
                         sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
+						PlayerFail();
                     }
 
                     downRS = true; // Sets the bool so that this code is only called once per depression
@@ -192,6 +202,11 @@ public class sequence : MonoBehaviour {
                 complete();
             }
         }
+	}
+
+	private void PlayerFail()
+	{
+		PlayerPrefs.SetInt ("Fails Player " + controller, PlayerPrefs.GetInt ("Fails Player " + controller) + 1);
 	}
 
     void complete()
