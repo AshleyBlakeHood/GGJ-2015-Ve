@@ -214,6 +214,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  canMove: 1
+  heads:
+  - {fileID: 21300000, guid: 559b91b3e96480740aa0c985791b3fe1, type: 3}
+  - {fileID: 21300000, guid: fdfb811fc0f336040bc3bb9b8b4645d6, type: 3}
+  - {fileID: 21300000, guid: df9277ddd8ba4584db72ecc9a75b2b95, type: 3}
+  - {fileID: 21300000, guid: af45e5fb8959f084989b3ebf9f9b17b9, type: 3}
 --- !u!114 &11495288
 MonoBehaviour:
   m_ObjectHideFlags: 1

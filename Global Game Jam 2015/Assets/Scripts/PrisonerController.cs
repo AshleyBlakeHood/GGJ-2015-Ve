@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using XInputDotNetPure;
 
 public class PrisonerController : MonoBehaviour
@@ -11,6 +12,8 @@ public class PrisonerController : MonoBehaviour
     GamePadState gpState;
     PlayerIndex playerIndex;
     public bool canMove = true;
+
+    public List<Sprite> heads;
 
 	// Use this for initialization
 	void Start ()
@@ -41,8 +44,30 @@ public class PrisonerController : MonoBehaviour
                 break;
         }
         playerID = playerNumber;
+        SwitchHead();
     }
-	
+
+    void SwitchHead()
+    {
+        switch (playerID)
+        {
+            case 1:
+                transform.FindChild("Body").FindChild("Head").GetComponent<SpriteRenderer>().sprite = heads[0];
+                break;
+            case 2:
+                transform.FindChild("Body").FindChild("Head").GetComponent<SpriteRenderer>().sprite = heads[1];
+                break;
+            case 3:
+                transform.FindChild("Body").FindChild("Head").GetComponent<SpriteRenderer>().sprite = heads[2];
+                break;
+            case 4:
+                transform.FindChild("Body").FindChild("Head").GetComponent<SpriteRenderer>().sprite = heads[3];
+                break;
+            default:
+                break;
+        }
+    }
+
 	// Update is called once per frame
 	void Update () {
 
