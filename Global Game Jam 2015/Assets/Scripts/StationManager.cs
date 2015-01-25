@@ -25,8 +25,37 @@ public class StationManager : MonoBehaviour
 	{
 		if (Time.time > nextbreak && allowBreaking == true)
 		{
-			stations [Random.Range (0, stations.Count)].BreakStation ();
+			BreakUnbrokenStation ();
 			nextbreak = Time.time + Random.Range (5f, 10f);
+		}
+	}
+
+	public void BreakUnbrokenStation()
+	{
+		bool[] allBrokenCheck = new bool[stations.Count];
+
+		bool impossibleToBreak = false;
+
+		while (!impossibleToBreak)
+		{
+			int i = Random.Range (0, stations.Count);
+
+			if (stations[i].IsBroken ())
+				allBrokenCheck[i] = true;
+			else
+			{
+				stations[i].BreakStation ();
+				break;
+			}
+
+			for (int b = 0; b < allBrokenCheck.Length; b++)
+			{
+				if (allBrokenCheck[b] == false)
+					break;
+
+				if (b == allBrokenCheck.Length - 1)
+					impossibleToBreak = true;
+			}
 		}
 	}
 }

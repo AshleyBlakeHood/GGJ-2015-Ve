@@ -33,6 +33,7 @@ public class BackgroundManager : MonoBehaviour
         SpawnSpaceScene();
         SpawnSpaceScene();
         SpawnSpaceScene();
+		SpawnSpaceScene();
 	}
 	
 	// Update is called once per frame
@@ -43,10 +44,10 @@ public class BackgroundManager : MonoBehaviour
 		ProcessFlybys ();
 
 		if (Input.GetKeyDown (KeyCode.UpArrow))
-			FauxMoveUp (2);
+			FauxMoveUp ();
 
 		if (Input.GetKeyDown (KeyCode.DownArrow))
-			FauxMoveDown (2);
+			FauxMoveDown ();
 	}
 
     private void ProcessSpaceBackgrounds()
@@ -121,7 +122,7 @@ public class BackgroundManager : MonoBehaviour
 
         if (spaceScenes.Count < 1)
         {
-            newScene = Instantiate(spaceSceneResources[Random.Range(0, spaceSceneResources.Length)], Vector2.zero, Quaternion.identity) as GameObject;
+            newScene = Instantiate(spaceSceneResources[Random.Range(0, spaceSceneResources.Length)], new Vector2(-10.80f, 0), Quaternion.identity) as GameObject;
         }
         else
         {
@@ -165,25 +166,23 @@ public class BackgroundManager : MonoBehaviour
         }
     }
 
-	public void FauxMoveUp(int backgroundsToMove)
+	public void FauxMoveUp()
 	{
 		foreach(GameObject g in spaceScenes)
 		{
 			SpawnAboveAndBelowAndMove (g, -1);
 		}
-
-		//backgroundsLeftToMove = backgroundsToMove;
+		
 		direction = 1;
 	}
 
-	public void FauxMoveDown(int backgroundsToMove)
+	public void FauxMoveDown()
 	{
 		foreach(GameObject g in spaceScenes)
 		{
 			SpawnAboveAndBelowAndMove (g, 1);
 		}
-		
-		//backgroundsLeftToMove = backgroundsToMove;
+
 		direction = -1;
 	}
 
