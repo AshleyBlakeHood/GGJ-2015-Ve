@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: -.100000001, y: 0}
-  terminationZone: {x: -20, y: 0}
+  terminationZone: {x: -30, y: 0}
   spaceSceneResources:
   - {fileID: 185112, guid: 19f65cfaaa6f020429d50949b77b2c28, type: 2}
   planetResources:
@@ -296,6 +296,7 @@ MonoBehaviour:
   EndGameParticles: {fileID: 0}
   globalScore: 0
   players: []
+  runOnce: 0
 --- !u!1 &2060916565
 GameObject:
   m_ObjectHideFlags: 0

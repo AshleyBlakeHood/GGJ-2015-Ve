@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using XInputDotNetPure;
 
-public class Direction : MonoBehaviour {
+public class Direction : MonoBehaviour
+{
+	AudioSource audioSource;
+
 	private bool voteOpen = false; 	
 	private int up = 0;
 	private int right = 0;
@@ -15,7 +18,7 @@ public class Direction : MonoBehaviour {
 	GameManager gm;
 	ArrowManager arrows;
     StationManager sm;
-
+	BackgroundManager backgroundManager;
 
     GamePadState state1;
     GamePadState state2;
@@ -36,6 +39,7 @@ public class Direction : MonoBehaviour {
         gm = FindObjectOfType<GameManager>();
 		arrows = FindObjectOfType<ArrowManager> ();
         sm = FindObjectOfType<StationManager>();
+		backgroundManager = FindObjectOfType<BackgroundManager>();
 		//Attempt to find the game manager	
 
         directionSelection1 = DirectionSelection.Nullified;
@@ -43,6 +47,7 @@ public class Direction : MonoBehaviour {
         directionSelection3 = DirectionSelection.Nullified;
         directionSelection4 = DirectionSelection.Nullified;
 
+		audioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -201,11 +206,21 @@ public class Direction : MonoBehaviour {
         {
 			temp = up;
 			name = "up";
+
+			if (up != count || up == 0)
+				BreakMultipleStations (2);
+
+			backgroundManager.FauxMoveUp ();
 		}
 		else
         {
 			temp = down;
 			name = "Down";
+
+			if (down != count || down == 0)
+				BreakMultipleStations (2);
+
+			backgroundManager.FauxMoveDown ();
 		}
 
 		if (temp > right) 
@@ -215,11 +230,30 @@ public class Direction : MonoBehaviour {
 		}
 		else
         {
+			if (right != count || right == 0)
+				BreakMultipleStations (2);
+
 			Debug.Log("Right");
 			arrows.destroyArrows("Right");
 		}
+
 		//Find the direction with the highest number of votes
 		clearVotes ();
+	}
+
+	/// <summary>
+	/// Breaks multiple stations when the players do not vote unaminously.
+	/// </summary>
+	/// <param name="count">Count.</param>
+	private void BreakMultipleStations(int count)
+	{
+		if (audioSource != null)
+			audioSource.Play ();
+
+		for (int i = 0; i < count; i++)
+		{
+			sm.BreakUnbrokenStation ();
+		}
 	}
 
 	public void clearVotes()
