@@ -12,12 +12,13 @@ public class ArrowManager : MonoBehaviour {
 	private GameObject downArrow;
 
     StationManager sm;
+    GameManager gm;
 
 	// Use this for initialization
 	void Start () 
     {
         sm = GameObject.FindObjectOfType<StationManager>();
-
+        gm = GameObject.FindObjectOfType<GameManager>();
         upwards = new Vector3(7.5f, 2.9f, -1);
 		right = new Vector3(6.7f,0,-1);
         down = new Vector3(7.5f, -2.5f, -1);
@@ -44,6 +45,7 @@ public class ArrowManager : MonoBehaviour {
 
 	public void destroyArrows(string direction)
 	{
+        
 		if (direction == "Up") {
 			Destroy(rightArrow);
 			Destroy(downArrow);
@@ -62,7 +64,6 @@ public class ArrowManager : MonoBehaviour {
 			StartCoroutine(imminentDestruction(downArrow));
 		}
 		//Depends on the chosen direction, destroy the others
-
         sm.allowBreaking = true;
 	}
 

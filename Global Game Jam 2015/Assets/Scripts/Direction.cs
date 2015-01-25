@@ -206,27 +206,33 @@ public class Direction : MonoBehaviour
         {
 			temp = up;
 			name = "Up";
-
-			if (up != count || up == 0)
-				BreakMultipleStations (2);
-
-			backgroundManager.FauxMoveUp ();
 		}
 		else
         {
 			temp = down;
 			name = "Down";
-
-			if (down != count || down == 0)
-				BreakMultipleStations (2);
-
-			backgroundManager.FauxMoveDown ();
 		}
 
 		if (temp > right) 
         {
 			Debug.Log (name);
 			arrows.destroyArrows(name);
+
+            if (name == "Up")
+            {
+                if (up != count || up == 0)
+                    BreakMultipleStations(2);
+
+                backgroundManager.FauxMoveUp();
+            }
+            else if (name == "Down")
+            {
+                if (down != count || down == 0)
+                    BreakMultipleStations(2);
+
+                backgroundManager.FauxMoveDown();
+            }
+
 		}
 		else
         {
@@ -270,7 +276,8 @@ public class Direction : MonoBehaviour
             directionSelection3 = DirectionSelection.Nullified;
             directionSelection4 = DirectionSelection.Nullified;
             runOnce = true;
-
+            gm.runOnce = false;
+            gm.fixes = 0;
             toggleVote();
             //Reset the votes
         //}

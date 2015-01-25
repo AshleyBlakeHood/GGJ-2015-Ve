@@ -136,6 +136,8 @@ public class Station : MonoBehaviour
 
         flashing = false;
 
+        gameManager.fixes++;
+
         hintText.GetComponent<Text>().text = "YOU DID IT!";
         SpriteRenderer[] temp = sequenceDisplay.GetComponentsInChildren<SpriteRenderer>();
         foreach (SpriteRenderer s in temp)

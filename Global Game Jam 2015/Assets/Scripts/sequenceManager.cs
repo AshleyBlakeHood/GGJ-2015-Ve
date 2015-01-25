@@ -68,7 +68,7 @@ public class sequenceManager : MonoBehaviour {
             completed = 0;
             
             station = null; // Resets station so that a broken station can overwrite
-            gm.fixes++;
+            //gm.fixes++;
         }
 
         if (Input.GetKeyDown(KeyCode.H))
