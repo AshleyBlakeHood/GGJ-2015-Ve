@@ -125,7 +125,7 @@ public class BackgroundManager : MonoBehaviour
         }
         else
         {
-            newScene = Instantiate(spaceSceneResources[Random.Range(0, spaceSceneResources.Length)], new Vector2(spaceScenes[spaceScenes.Count - 1].transform.position.x + 19.20f, 0), Quaternion.identity) as GameObject; ;
+            newScene = Instantiate(spaceSceneResources[Random.Range(0, spaceSceneResources.Length)], new Vector2(spaceScenes[spaceScenes.Count - 1].transform.position.x + 19f, 0), Quaternion.identity) as GameObject; ;
         }
 
         spaceScenes.Add(newScene);
@@ -195,24 +195,21 @@ public class BackgroundManager : MonoBehaviour
 		up.transform.parent = g.transform;
 		down.transform.parent = g.transform;
 		
-		StartCoroutine (MoveBackground(g, direction));
-		StartCoroutine (MoveBackground(up, direction));
-		StartCoroutine (MoveBackground(down, direction));
+		StartCoroutine (MoveBackground(g, g.transform.position.y + 8.4f * direction));
 	}
 
-	IEnumerator MoveBackground(GameObject background, int direction)
+	IEnumerator MoveBackground(GameObject background, float destinationY)
 	{
-		float amountToMove = 2f;
-		float amountMoved = 0;
+		float y = background.transform.position.y;
 
-		while (amountMoved < amountToMove)
+		while (true)
 		{
 			if (background == null)
 				break;
 
-			amountMoved += 0.01f;
+			y = background.transform.position.y;
 
-			background.transform.position = Vector2.MoveTowards (background.transform.position, new Vector2(background.transform.position.x, background.transform.position.y + direction), 0.01f);
+			background.transform.position = Vector2.MoveTowards (background.transform.position, new Vector2(background.transform.position.x, destinationY), 0.05f);
 			yield return null;
 		}
 	}

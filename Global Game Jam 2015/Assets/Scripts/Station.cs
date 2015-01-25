@@ -25,6 +25,9 @@ public class Station : MonoBehaviour
 
     public GameObject sequenceDisplay, hintText;
 
+	public Vector3 triggerZoneCentre = Vector3.zero;
+	public float triggerRadius = 1f;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -49,7 +52,7 @@ public class Station : MonoBehaviour
 			//Scan all players to check their distance to the station.
             for (int i = 0; i < gameManager.players.Count; i++)
             {
-                if (Vector2.Distance(gameManager.players[i].transform.position, transform.position) < 1f)
+                if (Vector2.Distance(gameManager.players[i].transform.position, triggerZoneCentre) < triggerRadius)
                 {
                     //Debug.Log("Lana!");
                     if (!playersInZone.Contains(gameManager.players[i]))
@@ -161,4 +164,11 @@ public class Station : MonoBehaviour
             spriteRenderer.enabled = !spriteRenderer.enabled;
         }
     }
+
+	void OnDrawGizmosSelected()
+	{
+		Gizmos.color = Color.cyan;
+
+		Gizmos.DrawWireSphere (transform.position + triggerZoneCentre, triggerRadius);
+	}
 }
