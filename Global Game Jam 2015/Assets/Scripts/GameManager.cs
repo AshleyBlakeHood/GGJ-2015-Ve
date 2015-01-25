@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
         sm = GameObject.FindObjectOfType<StationManager>();
 
 		currentPlayers = PlayerPrefs.GetInt ("Player Count");
-        currentPlayers = 1;
         SpawnPlayers();
 	}
 	
@@ -33,7 +32,7 @@ public class GameManager : MonoBehaviour
 	void Update () 
     {
 
-        if (fixes == 0 && runOnce == false)
+        if (fixes == 2 && runOnce == false)
         {
             fixes = 0;
             dir.toggleVote();

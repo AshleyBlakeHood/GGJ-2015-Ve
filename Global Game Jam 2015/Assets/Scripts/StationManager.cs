@@ -17,6 +17,7 @@ public class StationManager : MonoBehaviour
 	void Start ()
 	{
 		nextbreak = Time.time + Random.Range (5f, 10f);
+        allowBreaking = true;
 	}
 	
 	// Update is called once per frame
