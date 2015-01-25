@@ -205,7 +205,7 @@ public class Direction : MonoBehaviour
 		if (up >= down) 
         {
 			temp = up;
-			name = "up";
+			name = "Up";
 
 			if (up != count || up == 0)
 				BreakMultipleStations (2);
