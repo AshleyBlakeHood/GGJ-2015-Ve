@@ -48,13 +48,13 @@ public class sequence : MonoBehaviour {
                     { // Correct Button
                         playerLoc++; // Moves the sequence along.
 
-                        Debug.Log("A0");
+                        //Debug.Log("A0");
                     }
                     else
                     { // Incorrect Button
                         playerLoc = 0; // Resetting the players location in the sequence
                         //Debug.Log("Wrong Button");
-                        Debug.Log("Player " + controller + " got the button wrong restarting sequences");
+                        //Debug.Log("Player " + controller + " got the button wrong restarting sequences");
                         sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
                     }
@@ -70,13 +70,13 @@ public class sequence : MonoBehaviour {
                     { // Correct Button
                         playerLoc++; // Moves the sequence along.
 
-                        Debug.Log("B1");
+                        //Debug.Log("B1");
                     }
                     else
                     { // Incorrect Button
                         playerLoc = 0; // Resetting the players location in the sequence
                         //Debug.Log("Wrong Button");
-                        Debug.Log("Player " + controller + " got the button wrong restarting sequences");
+                        //Debug.Log("Player " + controller + " got the button wrong restarting sequences");
                         sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
                     }
@@ -92,13 +92,13 @@ public class sequence : MonoBehaviour {
                     { // Correct Button
                         playerLoc++; // Moves the sequence along.
 
-                        Debug.Log("X2");
+                        //Debug.Log("X2");
                     }
                     else
                     { // Incorrect Button
                         playerLoc = 0; // Resetting the players location in the sequence
                         //Debug.Log("Wrong Button");
-                        Debug.Log("Player " + controller + " got the button wrong restarting sequences");
+                        //Debug.Log("Player " + controller + " got the button wrong restarting sequences");
                         sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
                     }
@@ -114,13 +114,13 @@ public class sequence : MonoBehaviour {
                     { // Correct Button
                         playerLoc++; // Moves the sequence along.
 
-                        Debug.Log("Y3");
+                        //Debug.Log("Y3");
                     }
                     else
                     { // Incorrect Button
                         playerLoc = 0; // Resetting the players location in the sequence
                         //Debug.Log("Wrong Button");
-                        Debug.Log("Player " + controller + " got the button wrong restarting sequences");
+                        //Debug.Log("Player " + controller + " got the button wrong restarting sequences");
                         sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
                     }
@@ -136,13 +136,13 @@ public class sequence : MonoBehaviour {
                     { // Correct Button
                         playerLoc++; // Moves the sequence along.
 
-                        Debug.Log("LB4");
+                        //Debug.Log("LB4");
                     }
                     else
                     { // Incorrect Button
                         playerLoc = 0; // Resetting the players location in the sequence
                         //Debug.Log("Wrong Button");
-                        Debug.Log("Player " + controller + " got the button wrong restarting sequences");
+                        //Debug.Log("Player " + controller + " got the button wrong restarting sequences");
                         sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
                     }
@@ -158,13 +158,13 @@ public class sequence : MonoBehaviour {
                     { // Correct Button
                         playerLoc++; // Moves the sequence along.
 
-                        Debug.Log("RB5");
+                        //Debug.Log("RB5");
                     }
                     else
                     { // Incorrect Button
                         playerLoc = 0; // Resetting the players location in the sequence
                         //Debug.Log("Wrong Button");
-                        Debug.Log("Player " + controller + " got the button wrong restarting sequences");
+                        //Debug.Log("Player " + controller + " got the button wrong restarting sequences");
                         sm.SetPromptText(controller);
                         sm.sequence(); // Calls for a new sequence
                     }
@@ -203,25 +203,25 @@ public class sequence : MonoBehaviour {
         {
             case 1:
                 sm.playerOne = true;
-                Debug.Log("Player One Completed");
+                //Debug.Log("Player One Completed");
                 break;
             case 2:
                 sm.playerTwo = true;
-                Debug.Log("Player Two Completed");
+                //Debug.Log("Player Two Completed");
                 break;
             case 3:
                 sm.playerThree = true;
-                Debug.Log("Player Three Completed");
+                //Debug.Log("Player Three Completed");
                 break;
             case 4:
                 sm.playerFour = true;
-                Debug.Log("Player Four Completed");
+                //Debug.Log("Player Four Completed");
                 break;
         }
     }
 
     void OnGUI()
     {
-        GUI.Label(new Rect(50, 10, 250, 30), string.Join("+", Array.ConvertAll<int, String>(sequenceI, Convert.ToString)));
+        //GUI.Label(new Rect(50, 10, 250, 30), string.Join("+", Array.ConvertAll<int, String>(sequenceI, Convert.ToString)));
     }
 }

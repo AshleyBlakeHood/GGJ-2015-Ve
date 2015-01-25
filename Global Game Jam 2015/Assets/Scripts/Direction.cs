@@ -61,7 +61,7 @@ public class Direction : MonoBehaviour {
             {
                 stationCount++;
 
-                Debug.Log(stationCount);
+                //Debug.Log(stationCount);
                 
             }
         }
@@ -200,7 +200,7 @@ public class Direction : MonoBehaviour {
 		if (up >= down) 
         {
 			temp = up;
-			name = "up";
+			name = "Up";
 		}
 		else
         {
@@ -224,21 +224,21 @@ public class Direction : MonoBehaviour {
 
 	public void clearVotes()
 	{
-        //if (runOnce == false)
-        //{
-            up = 0;
-            right = 0;
-            down = 0;
-            count = 0;
+        up = 0;
+        right = 0;
+        down = 0;
+        count = 0;
 
-            directionSelection1 = DirectionSelection.Nullified;
-            directionSelection2 = DirectionSelection.Nullified;
-            directionSelection3 = DirectionSelection.Nullified;
-            directionSelection4 = DirectionSelection.Nullified;
-            runOnce = true;
+        directionSelection1 = DirectionSelection.Nullified;
+        directionSelection2 = DirectionSelection.Nullified;
+        directionSelection3 = DirectionSelection.Nullified;
+        directionSelection4 = DirectionSelection.Nullified;
+        runOnce = true;
 
-            toggleVote();
-            //Reset the votes
-        //}
+        toggleVote();
+        gm.fixes = 0;
+        gm.runOnce = false;
+        Debug.Log("Cleaned");
+        //Reset the votes
 	}
 }

@@ -32,13 +32,13 @@ public class GameManager : MonoBehaviour
 	void Update () 
     {
 
-        if (fixes == 2 && runOnce == false)
+        if (fixes >= 2 && runOnce == false)
         {
             //fixes = 0;
             dir.toggleVote();
             //sm.allowBreaking = false;
 
-            //Debug.Log("Yoo");
+            //Debug.Log("Game Manager Fixes =" + fixes + " RunOnce =" + runOnce);
 
             //runOnce = true;
         }
