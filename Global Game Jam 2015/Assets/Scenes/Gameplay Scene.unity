@@ -1682,6 +1682,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7707c621d705cfb41a9169b2753c19e0, type: 3}
   - {fileID: 21300000, guid: 01ed8da752404b1488e17008fca368c7, type: 3}
   promptText: {fileID: 453661516}
+  failSound: {fileID: 908166053}
 --- !u!4 &817892998
 Transform:
   m_ObjectHideFlags: 0
@@ -1861,7 +1862,7 @@ AudioSource:
   m_GameObject: {fileID: 908166053}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 40b6f28fe0233ac41bfcf1e7170f88aa, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1869,7 +1870,7 @@ AudioSource:
   Mute: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 39.0865479
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

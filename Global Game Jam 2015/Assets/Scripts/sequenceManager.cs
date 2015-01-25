@@ -19,7 +19,7 @@ public class sequenceManager : MonoBehaviour {
     public List<GameObject> sequenceDisplay;
     // 0 = A, 1 = B, 2 = X, 3 = Y, 4 = Left Shoulder, 5 = Right Shoulder
     public List<Sprite> promptSprites;
-    public GameObject promptText;
+    public GameObject promptText, failSound;
 
 	// Use this for initialization
 	void Start () {
@@ -155,5 +155,6 @@ public class sequenceManager : MonoBehaviour {
     public void SetPromptText(int playerID)
     {
         promptText.GetComponent<Text>().text = "PLAYER " + playerID + " GOT IT WRONG! TRY AGAIN!";
+        failSound.GetComponent<AudioSource>().Play();
     }
 }
