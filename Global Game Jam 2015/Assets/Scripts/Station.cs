@@ -52,7 +52,7 @@ public class Station : MonoBehaviour
 			//Scan all players to check their distance to the station.
             for (int i = 0; i < gameManager.players.Count; i++)
             {
-                if (Vector2.Distance(gameManager.players[i].transform.position, triggerZoneCentre) < triggerRadius)
+                if (Vector2.Distance(gameManager.players[i].transform.position, transform.position + triggerZoneCentre) < triggerRadius)
                 {
                     //Debug.Log("Lana!");
                     if (!playersInZone.Contains(gameManager.players[i]))

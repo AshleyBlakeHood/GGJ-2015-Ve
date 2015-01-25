@@ -545,6 +545,18 @@ Prefab:
       propertyPath: hintText
       value: 
       objectReference: {fileID: 453661516}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerRadius
+      value: .639999986
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerZoneCentre.x
+      value: -.540000021
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerZoneCentre.y
+      value: -.589999974
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a82fae6874542044b85621f1d199bfae, type: 2}
   m_RootGameObject: {fileID: 2037662981}
@@ -1136,6 +1148,18 @@ Prefab:
       propertyPath: hintText
       value: 
       objectReference: {fileID: 453661516}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerRadius
+      value: .340000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerZoneCentre.x
+      value: -.439999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerZoneCentre.y
+      value: -.280000001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a82fae6874542044b85621f1d199bfae, type: 2}
   m_RootGameObject: {fileID: 1531092968}
@@ -1306,6 +1330,18 @@ Prefab:
       propertyPath: hintText
       value: 
       objectReference: {fileID: 453661516}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerRadius
+      value: .270000011
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerZoneCentre.x
+      value: .379999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerZoneCentre.y
+      value: -.25999999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a82fae6874542044b85621f1d199bfae, type: 2}
   m_RootGameObject: {fileID: 1755011795}
@@ -1369,6 +1405,8 @@ MonoBehaviour:
   secondAlert: {fileID: 1974980132}
   sequenceDisplay: {fileID: 11334861}
   hintText: {fileID: 453661516}
+  triggerZoneCentre: {x: -.349999994, y: -.360000014, z: -.600000024}
+  triggerRadius: .49000001
 --- !u!212 &751764880
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1450,6 +1488,8 @@ MonoBehaviour:
   secondAlert: {fileID: 1974980132}
   sequenceDisplay: {fileID: 11334861}
   hintText: {fileID: 453661516}
+  triggerZoneCentre: {x: .670000017, y: -.319999993, z: 0}
+  triggerRadius: .419999987
 --- !u!212 &767810758
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2218,6 +2258,18 @@ Prefab:
       propertyPath: hintText
       value: 
       objectReference: {fileID: 453661516}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerRadius
+      value: .419999987
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerZoneCentre.x
+      value: .670000017
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerZoneCentre.y
+      value: -.319999993
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a82fae6874542044b85621f1d199bfae, type: 2}
   m_RootGameObject: {fileID: 767810754}
@@ -4457,6 +4509,8 @@ MonoBehaviour:
   secondAlert: {fileID: 1974980132}
   sequenceDisplay: {fileID: 11334861}
   hintText: {fileID: 453661516}
+  triggerZoneCentre: {x: -.439999998, y: -.280000001, z: 0}
+  triggerRadius: .340000004
 --- !u!212 &1531092972
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4566,6 +4620,8 @@ MonoBehaviour:
   secondAlert: {fileID: 1974980132}
   sequenceDisplay: {fileID: 11334861}
   hintText: {fileID: 453661516}
+  triggerZoneCentre: {x: .270000011, y: -.449999988, z: 0}
+  triggerRadius: .430000007
 --- !u!212 &1618637325
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4732,6 +4788,22 @@ Prefab:
       propertyPath: hintText
       value: 
       objectReference: {fileID: 453661516}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerZoneCentre.x
+      value: -.349999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerZoneCentre.y
+      value: -.360000014
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerZoneCentre.z
+      value: -.600000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerRadius
+      value: .49000001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a82fae6874542044b85621f1d199bfae, type: 2}
   m_RootGameObject: {fileID: 751764876}
@@ -4820,6 +4892,18 @@ Prefab:
       propertyPath: hintText
       value: 
       objectReference: {fileID: 453661516}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerRadius
+      value: .430000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerZoneCentre.x
+      value: .270000011
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerZoneCentre.y
+      value: -.449999988
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a82fae6874542044b85621f1d199bfae, type: 2}
   m_RootGameObject: {fileID: 1618637322}
@@ -4970,6 +5054,7 @@ MonoBehaviour:
   EndGameParticles: {fileID: 1490161598}
   globalScore: 0
   players: []
+  runOnce: 0
 --- !u!1 &1739584147
 GameObject:
   m_ObjectHideFlags: 0
@@ -5108,6 +5193,8 @@ MonoBehaviour:
   secondAlert: {fileID: 1974980132}
   sequenceDisplay: {fileID: 11334861}
   hintText: {fileID: 453661516}
+  triggerZoneCentre: {x: .379999995, y: -.25999999, z: 0}
+  triggerRadius: .270000011
 --- !u!212 &1755011799
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5342,8 +5429,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235533764b27172478d00cf8154a7ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 0}
-  arrows: {fileID: 0}
 --- !u!114 &1874805526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5417,6 +5502,8 @@ MonoBehaviour:
   secondAlert: {fileID: 1974980132}
   sequenceDisplay: {fileID: 11334861}
   hintText: {fileID: 453661516}
+  triggerZoneCentre: {x: .310000002, y: .409999996, z: 0}
+  triggerRadius: .430000007
 --- !u!212 &1891255748
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5725,6 +5812,8 @@ MonoBehaviour:
   secondAlert: {fileID: 1974980132}
   sequenceDisplay: {fileID: 11334861}
   hintText: {fileID: 453661516}
+  triggerZoneCentre: {x: -.540000021, y: -.589999974, z: 0}
+  triggerRadius: .639999986
 --- !u!212 &2037662985
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5915,6 +6004,18 @@ Prefab:
       propertyPath: hintText
       value: 
       objectReference: {fileID: 453661516}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerRadius
+      value: .430000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerZoneCentre.x
+      value: .310000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456866, guid: a82fae6874542044b85621f1d199bfae, type: 2}
+      propertyPath: triggerZoneCentre.y
+      value: .409999996
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a82fae6874542044b85621f1d199bfae, type: 2}
   m_RootGameObject: {fileID: 1891255744}
