@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> spawnPoints;
 	public int currentPlayers = 3, fixes = 0;
 
-    public GameObject Character, EndGameParticles;
+    public GameObject Character, Character2, Character3, Character4, EndGameParticles;
 
 	public int globalScore = 0;
 
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("P2") == 1)
         {
-            GameObject p2 = Instantiate(Character) as GameObject;
+            GameObject p2 = Instantiate(Character2) as GameObject;
             p2.name = "Player 2";
             p2.transform.position = spawnPoints[1].transform.position;
             p2.GetComponent<PrisonerController>().SetUpGamePad(2);
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("P3") == 1)
         {
-            GameObject p3 = Instantiate(Character) as GameObject;
+            GameObject p3 = Instantiate(Character3) as GameObject;
             p3.name = "Player 3";
             p3.transform.position = spawnPoints[2].transform.position;
             p3.GetComponent<PrisonerController>().SetUpGamePad(3);
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("P4") == 1)
         {
-            GameObject p4 = Instantiate(Character) as GameObject;
+            GameObject p4 = Instantiate(Character4) as GameObject;
             p4.name = "Player 4";
             p4.transform.position = spawnPoints[3].transform.position;
             p4.GetComponent<PrisonerController>().SetUpGamePad(4);
