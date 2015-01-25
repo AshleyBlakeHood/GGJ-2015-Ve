@@ -14,6 +14,7 @@ public class Station : MonoBehaviour
 
 	bool broken = false;
 
+    float maxTimeUntilCompletelyBroken = 25f;
 	float timeUntilCompletelyBroken = 30f;
 
 	List<PrisonerController> playersInZone = new List<PrisonerController> ();
@@ -42,6 +43,7 @@ public class Station : MonoBehaviour
 
 		//Tell station manager the station exists.
 		stationManager.stations.Add (this);
+        timeUntilCompletelyBroken = maxTimeUntilCompletelyBroken;
 	}
 	
 	// Update is called once per frame
@@ -131,7 +133,7 @@ public class Station : MonoBehaviour
 		else
 			gameManager.globalScore += (int)timeUntilCompletelyBroken;
 
-		timeUntilCompletelyBroken = 30f;
+        timeUntilCompletelyBroken = maxTimeUntilCompletelyBroken;
         inSequence = false;
 
         flashing = false;
@@ -173,4 +175,27 @@ public class Station : MonoBehaviour
 
 		Gizmos.DrawWireSphere (transform.position + triggerZoneCentre, triggerRadius);
 	}
+
+    void OnGUI()
+    {
+        if (broken)
+        {
+            if (timeUntilCompletelyBroken < 0)
+                timeUntilCompletelyBroken = 0;
+
+            GUIStyle style = new GUIStyle();
+            style.fontSize = 32;
+            style.normal.textColor = Color.white;
+
+            Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+
+            GUI.Label(new Rect(screenPos.x + 1, Screen.height - screenPos.y + 1, 100, 100), timeUntilCompletelyBroken.ToString("F2"), style);
+            style.normal.textColor = Color.red;
+            GUI.Label(new Rect(screenPos.x, Screen.height - screenPos.y, 100, 100), timeUntilCompletelyBroken.ToString("F2"), style);
+
+            
+
+
+        }
+    }
 }

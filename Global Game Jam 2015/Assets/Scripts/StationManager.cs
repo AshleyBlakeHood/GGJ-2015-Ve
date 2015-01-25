@@ -16,7 +16,7 @@ public class StationManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		nextbreak = Time.time + Random.Range (15f, 30f);
+		nextbreak = Time.time + Random.Range (10f, 17f);
         allowBreaking = true;
 	}
 	
@@ -26,7 +26,7 @@ public class StationManager : MonoBehaviour
 		if (Time.time > nextbreak && allowBreaking == true)
 		{
 			BreakUnbrokenStation ();
-			nextbreak = Time.time + Random.Range (15f, 30f);
+			nextbreak = Time.time + Random.Range (10f, 17f);
 		}
 	}
 

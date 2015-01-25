@@ -1,0 +1,34 @@
+Initialize engine version: 4.6.1f1 (d1db7a1b5196)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 750 Ti (ID=0x1380)
+    Vendor:   NVIDIA
+    VRAM:     1974 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\computing\Documents\GitHub\GGJ-2015-Ve\Builds\Intergalactic_Prison_Break_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\computing\Documents\GitHub\GGJ-2015-Ve\Builds\Intergalactic_Prison_Break_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\computing\Documents\GitHub\GGJ-2015-Ve\Builds\Intergalactic_Prison_Break_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\computing\Documents\GitHub\GGJ-2015-Ve\Builds\Intergalactic_Prison_Break_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\computing\Documents\GitHub\GGJ-2015-Ve\Builds\Intergalactic_Prison_Break_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\computing\Documents\GitHub\GGJ-2015-Ve\Builds\Intergalactic_Prison_Break_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\computing\Documents\GitHub\GGJ-2015-Ve\Builds\Intergalactic_Prison_Break_Data\Managed\XInputDotNetPure.dll (this message is harmless)
+Loading C:\Users\computing\Documents\GitHub\GGJ-2015-Ve\Builds\Intergalactic_Prison_Break_Data\Managed\XInputDotNetPure.dll into Unity Child Domain
+- Completed reload, in  0.033 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\computing\Documents\GitHub\GGJ-2015-Ve\Builds\Intergalactic_Prison_Break_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\computing\Documents\GitHub\GGJ-2015-Ve\Builds\Intergalactic_Prison_Break_Data\Managed\System.dll (this message is harmless)
+UnloadTime: 1.083109 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 158.
+Total: 1.173066 ms (FindLiveObjects: 0.009659 ms CreateObjectMapping: 0.009961 ms MarkObjects: 0.114106 ms  DeleteObjects: 0.497179 ms)
+
+UnloadTime: 8.506392 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 544.
+Total: 0.990435 ms (FindLiveObjects: 0.063694 ms CreateObjectMapping: 0.033507 ms MarkObjects: 0.307303 ms  DeleteObjects: 0.038035 ms)
+

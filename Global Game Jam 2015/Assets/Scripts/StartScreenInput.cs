@@ -107,6 +107,6 @@ public class StartScreenInput : MonoBehaviour {
     void StartGame()
     {
         PlayerPrefs.SetInt("Player Count", pCount);
-        Application.LoadLevel("Gameplay Scene");
+        Application.LoadLevel("Game Load Scene");
     }
 }
