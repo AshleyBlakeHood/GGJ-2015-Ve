@@ -32,11 +32,7 @@ public class GameManager : MonoBehaviour
 	void Update () 
     {
 
-<<<<<<< HEAD
         if (fixes == 2 && runOnce == false)
-=======
-        if (fixes >= 0 && runOnce == false)
->>>>>>> origin/Matts-Branch
         {
             //fixes = 0;
             dir.toggleVote();
