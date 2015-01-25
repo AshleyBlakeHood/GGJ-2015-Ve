@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     Direction dir;
     StationManager sm;
 
-    bool runOnce = false;
+    public bool runOnce = false;
 
 	// Use this for initialization
 	void Start ()
@@ -32,15 +32,19 @@ public class GameManager : MonoBehaviour
 	void Update () 
     {
 
+<<<<<<< HEAD
         if (fixes == 2 && runOnce == false)
+=======
+        if (fixes >= 0 && runOnce == false)
+>>>>>>> origin/Matts-Branch
         {
-            fixes = 0;
+            //fixes = 0;
             dir.toggleVote();
-            sm.allowBreaking = false;
+            //sm.allowBreaking = false;
 
-            Debug.Log("Yoo");
+            //Debug.Log("Yoo");
 
-            runOnce = true;
+            //runOnce = true;
         }
 	
 	}

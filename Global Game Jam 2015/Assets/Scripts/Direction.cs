@@ -9,9 +9,13 @@ public class Direction : MonoBehaviour {
 	private int right = 0;
 	private int down = 0;
 	private int count = 0;
+
+    int stationCount = 0;
 	//Hold the votes and number of
-	public GameManager gm;
-	public ArrowManager arrows;
+	GameManager gm;
+	ArrowManager arrows;
+    StationManager sm;
+
 
     GamePadState state1;
     GamePadState state2;
@@ -31,6 +35,7 @@ public class Direction : MonoBehaviour {
 	void Start () {
         gm = FindObjectOfType<GameManager>();
 		arrows = FindObjectOfType<ArrowManager> ();
+        sm = FindObjectOfType<StationManager>();
 		//Attempt to find the game manager	
 
         directionSelection1 = DirectionSelection.Nullified;
@@ -48,7 +53,22 @@ public class Direction : MonoBehaviour {
         state3 = GamePad.GetState(PlayerIndex.Three);
         state4 = GamePad.GetState(PlayerIndex.Four);
 
-		if (voteOpen == true) {
+        stationCount = 0;
+
+        foreach (Station sta in sm.stations)
+        {
+            if (sta.IsBroken() == true)
+            {
+                stationCount++;
+
+                Debug.Log(stationCount);
+                
+            }
+        }
+
+		if (voteOpen == true) 
+        {
+            Debug.Log(" station count: " + stationCount);
             // Controller One
             if (state1.DPad.Up == ButtonState.Pressed && directionSelection1 == DirectionSelection.Nullified)
             {
@@ -159,11 +179,18 @@ public class Direction : MonoBehaviour {
 	}
 	public void toggleVote()
 	{
-		voteOpen = !voteOpen;
-		//Open or close a vote
-		if (voteOpen == true) {
-			arrows.instantiateArrows();
-		}
+        if (stationCount == 0)
+        {
+            voteOpen = !voteOpen;
+            //Open or close a vote
+            if (voteOpen == true)
+            {
+                gm.runOnce = true;
+                gm.fixes = 0;
+                sm.allowBreaking = false;
+                arrows.instantiateArrows();
+            }
+        }
 	}
 
 	public void tallyVotes()
